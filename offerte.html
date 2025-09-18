@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offerte Mercato Libero - Mercato Tutelato</title>
+    <meta name="description" content="Confronta le migliori offerte del mercato libero dell'energia elettrica e gas. Trova la tariffa perfetta per il tuo profilo di consumo e risparmia sulla bolletta.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-bolt"></i>
+                        <span>Mercato Tutelato</span>
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="mercato-tutelato.html" class="nav-link">Mercato Tutelato</a>
+                    <a href="normativa.html" class="nav-link">Normativa</a>
+                    <a href="confronto.html" class="nav-link">Confronto</a>
+                    <a href="offerte.html" class="nav-link active">Offerte</a>
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                </div>
+                
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="header-content" data-aos="fade-up">
+                    <h1>Trova la Tariffa Migliore</h1>
+                    <p>Confronta le offerte del mercato libero dell'energia e trova quella più adatta al tuo profilo di consumo. Risparmia sulla bolletta scegliendo l'offerta giusta.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-wrapper" data-aos="fade-up">
+                    <div class="filter-header">
+                        <h2>Personalizza la Ricerca</h2>
+                        <p>Trova le offerte più adatte alle tue esigenze</p>
+                    </div>
+                    
+                    <form class="comparison-form" id="comparisonForm">
+                        <div class="form-grid">
+                            <!-- Tipo Fornitura -->
+                            <div class="form-group">
+                                <label for="fornituraType">
+                                    <i class="fas fa-plug"></i>
+                                    Tipo di Fornitura
+                                </label>
+                                <div class="radio-grid">
+                                    <label class="radio-option">
+                                        <input type="radio" name="fornitura" value="elettricita" checked>
+                                        <span class="radio-label">
+                                            <i class="fas fa-bolt"></i>
+                                            Elettricità
+                                        </span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="fornitura" value="gas">
+                                        <span class="radio-label">
+                                            <i class="fas fa-fire"></i>
+                                            Gas
+                                        </span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="fornitura" value="dual">
+                                        <span class="radio-label">
+                                            <i class="fas fa-home"></i>
+                                            Dual Fuel
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Consumo Annuo -->
+                            <div class="form-group">
+                                <label for="consumo">
+                                    <i class="fas fa-chart-bar"></i>
+                                    Consumo Annuo Stimato
+                                </label>
+                                <div class="range-wrapper">
+                                    <input type="range" id="consumo" name="consumo" min="1000" max="8000" value="2700" step="100">
+                                    <div class="range-labels">
+                                        <span>1.000 kWh</span>
+                                        <span id="consumoValue">2.700 kWh</span>
+                                        <span>8.000 kWh</span>
+                                    </div>
+                                </div>
+                                <div class="consumption-guide">
+                                    <div class="guide-item">
+                                        <span class="guide-range">1.000-2.000 kWh</span>
+                                        <span class="guide-type">Abitazione piccola (1-2 persone)</span>
+                                    </div>
+                                    <div class="guide-item">
+                                        <span class="guide-range">2.000-3.500 kWh</span>
+                                        <span class="guide-type">Abitazione media (3-4 persone)</span>
+                                    </div>
+                                    <div class="guide-item">
+                                        <span class="guide-range">3.500+ kWh</span>
+                                        <span class="guide-type">Abitazione grande (5+ persone)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tipo Tariffa -->
+                            <div class="form-group">
+                                <label>
+                                    <i class="fas fa-tag"></i>
+                                    Tipo di Tariffa
+                                </label>
+                                <div class="checkbox-grid">
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" name="tariffaType" value="fisso" checked>
+                                        <span class="checkbox-label">
+                                            <i class="fas fa-lock"></i>
+                                            <strong>Prezzo Fisso</strong>
+                                            <small>Protezione da aumenti</small>
+                                        </span>
+                                    </label>
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" name="tariffaType" value="variabile">
+                                        <span class="checkbox-label">
+                                            <i class="fas fa-chart-line"></i>
+                                            <strong>Prezzo Variabile</strong>
+                                            <small>Segue il mercato</small>
+                                        </span>
+                                    </label>
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" name="tariffaType" value="indicizzato">
+                                        <span class="checkbox-label">
+                                            <i class="fas fa-exchange-alt"></i>
+                                            <strong>Indicizzato</strong>
+                                            <small>Legato a indici di mercato</small>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Caratteristiche Desiderate -->
+                            <div class="form-group">
+                                <label>
+                                    <i class="fas fa-star"></i>
+                                    Caratteristiche Desiderate
+                                </label>
+                                <div class="features-grid">
+                                    <label class="feature-option">
+                                        <input type="checkbox" name="features" value="green">
+                                        <span class="feature-label">
+                                            <i class="fas fa-leaf"></i>
+                                            Energia Verde
+                                        </span>
+                                    </label>
+                                    <label class="feature-option">
+                                        <input type="checkbox" name="features" value="digital">
+                                        <span class="feature-label">
+                                            <i class="fas fa-mobile-alt"></i>
+                                            Gestione Digitale
+                                        </span>
+                                    </label>
+                                    <label class="feature-option">
+                                        <input type="checkbox" name="features" value="supporto24">
+                                        <span class="feature-label">
+                                            <i class="fas fa-headset"></i>
+                                            Supporto 24/7
+                                        </span>
+                                    </label>
+                                    <label class="feature-option">
+                                        <input type="checkbox" name="features" value="sconto">
+                                        <span class="feature-label">
+                                            <i class="fas fa-percentage"></i>
+                                            Sconti e Promozioni
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Ordinamento -->
+                            <div class="form-group">
+                                <label for="sortBy">
+                                    <i class="fas fa-sort"></i>
+                                    Ordina per
+                                </label>
+                                <select id="sortBy" name="sortBy" class="select-input">
+                                    <option value="prezzo">Prezzo più basso</option>
+                                    <option value="risparmio">Maggior risparmio</option>
+                                    <option value="rating">Migliore valutazione</option>
+                                    <option value="green">Sostenibilità</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <i class="fas fa-search"></i>
+                                Trova Offerte
+                            </button>
+                            <button type="button" class="btn btn-outline" id="resetFilters">
+                                <i class="fas fa-undo"></i>
+                                Resetta Filtri
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Offers Results -->
+        <section class="offers-section">
+            <div class="container">
+                <div class="results-header" data-aos="fade-up">
+                    <h2>Offerte Trovate</h2>
+                    <div class="results-summary">
+                        <span class="results-count">12 offerte trovate</span>
+                        <span class="potential-savings">Risparmio potenziale fino a €250/anno</span>
+                    </div>
+                </div>
+
+                <div class="offers-grid" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Offer Card 1 -->
+                    <div class="offer-card featured">
+                        <div class="offer-badge">
+                            <i class="fas fa-crown"></i>
+                            Miglior Offerta
+                        </div>
+                        
+                        <div class="provider-info">
+                            <div class="provider-logo">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="provider-details">
+                                <h3>EcoEnergia Plus</h3>
+                                <span class="provider-name">EcoEnergia SpA</span>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </span>
+                                    <span class="rating-score">4.5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="offer-price">
+                            <div class="current-price">
+                                <span class="price-value">€0.085</span>
+                                <span class="price-unit">/kWh</span>
+                            </div>
+                            <div class="price-comparison">
+                                <span class="old-price">€0.110/kWh</span>
+                                <span class="savings">-23%</span>
+                            </div>
+                        </div>
+
+                        <div class="offer-features">
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>100% Energia Verde</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Prezzo bloccato 24 mesi</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>App per gestione consumi</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-percentage"></i>
+                                    <span>Sconto fedeltà 5%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="savings-estimate">
+                            <div class="savings-amount">
+                                <span class="amount">€245</span>
+                                <span class="period">risparmi all'anno</span>
+                            </div>
+                            <div class="savings-details">
+                                Rispetto al mercato tutelato
+                            </div>
+                        </div>
+
+                        <div class="offer-actions">
+                            <button class="btn btn-primary btn-full">
+                                <i class="fas fa-shopping-cart"></i>
+                                Scegli Questa Offerta
+                            </button>
+                            <button class="btn btn-outline btn-full">
+                                <i class="fas fa-info-circle"></i>
+                                Dettagli Completi
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Offer Card 2 -->
+                    <div class="offer-card">
+                        <div class="provider-info">
+                            <div class="provider-logo">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="provider-details">
+                                <h3>PowerSave Basic</h3>
+                                <span class="provider-name">PowerSave Srl</span>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                    <span class="rating-score">4.2</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="offer-price">
+                            <div class="current-price">
+                                <span class="price-value">€0.092</span>
+                                <span class="price-unit">/kWh</span>
+                            </div>
+                            <div class="price-comparison">
+                                <span class="old-price">€0.110/kWh</span>
+                                <span class="savings">-16%</span>
+                            </div>
+                        </div>
+
+                        <div class="offer-features">
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Prezzo variabile mensile</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-headset"></i>
+                                    <span>Assistenza telefonica</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>Bolletta cartacea gratuita</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Attivazione rapida</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="savings-estimate">
+                            <div class="savings-amount">
+                                <span class="amount">€195</span>
+                                <span class="period">risparmi all'anno</span>
+                            </div>
+                            <div class="savings-details">
+                                Rispetto al mercato tutelato
+                            </div>
+                        </div>
+
+                        <div class="offer-actions">
+                            <button class="btn btn-primary btn-full">
+                                <i class="fas fa-shopping-cart"></i>
+                                Scegli Questa Offerta
+                            </button>
+                            <button class="btn btn-outline btn-full">
+                                <i class="fas fa-info-circle"></i>
+                                Dettagli Completi
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Offer Card 3 -->
+                    <div class="offer-card">
+                        <div class="offer-badge green">
+                            <i class="fas fa-leaf"></i>
+                            100% Verde
+                        </div>
+                        
+                        <div class="provider-info">
+                            <div class="provider-logo">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <div class="provider-details">
+                                <h3>GreenPower Max</h3>
+                                <span class="provider-name">GreenPower Italia</span>
+                                <div class="rating">
+                                    <span class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                    <span class="rating-score">4.8</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="offer-price">
+                            <div class="current-price">
+                                <span class="price-value">€0.098</span>
+                                <span class="price-unit">/kWh</span>
+                            </div>
+                            <div class="price-comparison">
+                                <span class="old-price">€0.110/kWh</span>
+                                <span class="savings">-11%</span>
+                            </div>
+                        </div>
+
+                        <div class="offer-features">
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>Certificati GO garantiti</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-seedling"></i>
+                                    <span>Compensazione CO2</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-solar-panel"></i>
+                                    <span>Promozione fotovoltaico</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-award"></i>
+                                    <span>Certificazione ambientale</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="savings-estimate">
+                            <div class="savings-amount">
+                                <span class="amount">€145</span>
+                                <span class="period">risparmi all'anno</span>
+                            </div>
+                            <div class="savings-details">
+                                Rispetto al mercato tutelato + impatto zero
+                            </div>
+                        </div>
+
+                        <div class="offer-actions">
+                            <button class="btn btn-primary btn-full">
+                                <i class="fas fa-shopping-cart"></i>
+                                Scegli Questa Offerta
+                            </button>
+                            <button class="btn btn-outline btn-full">
+                                <i class="fas fa-info-circle"></i>
+                                Dettagli Completi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load-more" data-aos="fade-up">
+                    <button class="btn btn-outline btn-large">
+                        <i class="fas fa-plus"></i>
+                        Mostra Altre Offerte
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-content" data-aos="fade-up">
+                    <div class="calculator-header">
+                        <h2>Calcola il Tuo Risparmio Esatto</h2>
+                        <p>Inserisci i dati della tua ultima bolletta per un calcolo preciso del risparmio</p>
+                    </div>
+                    
+                    <div class="calculator-form">
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <label for="currentProvider">Fornitore Attuale</label>
+                                <select id="currentProvider" class="select-input">
+                                    <option value="">Seleziona il tuo fornitore</option>
+                                    <option value="servizio-elettrico">Servizio Elettrico Nazionale</option>
+                                    <option value="acquirente-unico">Acquirente Unico</option>
+                                    <option value="altro">Altro fornitore</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="monthlyBill">Spesa Mensile Corrente</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-euro-sign"></i>
+                                    <input type="number" id="monthlyBill" placeholder="0" min="0" step="0.01">
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="monthlyConsumption">Consumo Mensile (kWh)</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-bolt"></i>
+                                    <input type="number" id="monthlyConsumption" placeholder="0" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-large">
+                            <i class="fas fa-calculator"></i>
+                            Calcola Risparmio Dettagliato
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Help Section -->
+        <section class="help-section">
+            <div class="container">
+                <div class="help-content" data-aos="fade-up">
+                    <div class="help-text">
+                        <h2>Hai Bisogno di Aiuto?</h2>
+                        <p>I nostri esperti sono a tua disposizione per guidarti nella scelta della migliore offerta energetica.</p>
+                        
+                        <div class="help-features">
+                            <div class="help-feature">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Consulenza Telefonica</strong>
+                                    <span>Chiamaci al 800.123.456</span>
+                                </div>
+                            </div>
+                            <div class="help-feature">
+                                <i class="fas fa-comments"></i>
+                                <div>
+                                    <strong>Chat Online</strong>
+                                    <span>Supporto in tempo reale</span>
+                                </div>
+                            </div>
+                            <div class="help-feature">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email Support</strong>
+                                    <span>info@mercatotutelato.it</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="help-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-headset"></i>
+                            Richiedi Consulenza
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-question-circle"></i>
+                            Vai alle FAQ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-bolt"></i>
+                        <span>Mercato Tutelato</span>
+                    </div>
+                    <p>Il tuo punto di riferimento per comprendere e navigare la transizione energetica italiana.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Sezioni</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="mercato-tutelato.html">Mercato Tutelato</a></li>
+                        <li><a href="normativa.html">Normativa</a></li>
+                        <li><a href="confronto.html">Confronto</a></li>
+                        <li><a href="offerte.html">Offerte</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Risorse</h4>
+                    <ul>
+                        <li><a href="#">Guide</a></li>
+                        <li><a href="#">Calcolatori</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Glossario</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contatti</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@mercatotutelato.it</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>800.123.456</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mercato Tutelato. Tutti i diritti riservati.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Termini di Servizio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
