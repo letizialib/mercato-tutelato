@@ -191,6 +191,7 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding: var(--space-12) 0;
 }
 
 .hero::before {
@@ -208,17 +209,17 @@ body {
     z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-6);
     width: 100%;
 }
 
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
+    gap: var(--space-20);
     align-items: center;
     min-height: calc(100vh - 70px);
-    padding-top: var(--space-16);
+    padding: var(--space-8) 0;
 }
 
 .hero-text {
@@ -250,6 +251,9 @@ body {
     display: flex;
     gap: var(--space-4);
     flex-wrap: wrap;
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-4);
+    align-items: center;
 }
 
 /* Buttons */
@@ -4678,13 +4682,15 @@ body {
     gap: var(--space-2);
     background: rgba(239, 68, 68, 0.9);
     color: white;
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-3) var(--space-6);
     border-radius: var(--radius-full);
     font-size: var(--font-size-sm);
     font-weight: 600;
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
     animation: pulse 2s infinite;
     box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 @keyframes pulse {
@@ -4712,7 +4718,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    margin: var(--space-6) 0;
+    margin: var(--space-6) 0 var(--space-6) 0;
 }
 
 .hero-benefits .benefit-item {
@@ -4721,6 +4727,7 @@ body {
     gap: var(--space-3);
     color: rgba(255, 255, 255, 0.95);
     font-size: var(--font-size-lg);
+    padding: var(--space-2) 0;
 }
 
 .hero-benefits .benefit-item i {
@@ -4766,53 +4773,21 @@ body {
     font-weight: 400;
 }
 
-/* Trust Section */
-.hero-trust {
-    margin-top: var(--space-8);
-    padding-top: var(--space-6);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.trust-stats {
-    display: flex;
-    gap: var(--space-8);
-    justify-content: flex-start;
-}
-
-.trust-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-
-.trust-number {
-    font-size: var(--font-size-2xl);
-    font-weight: 800;
-    color: var(--secondary-color);
-    line-height: 1;
-}
-
-.trust-label {
-    font-size: var(--font-size-sm);
-    opacity: 0.9;
-    margin-top: var(--space-1);
-}
-
 /* Enhanced Visual Section */
 .main-visual-container {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: var(--space-8);
 }
 
 .central-graphic {
     position: relative;
     z-index: 10;
+    display: none; /* Nasconde la box centrale */
 }
 
 .energy-meter {
@@ -4871,6 +4846,7 @@ body {
     transition: all var(--transition-base);
     min-width: 180px;
     animation: cardFloat 4s ease-in-out infinite;
+    z-index: 15; /* Sopra i cerchi animati */
 }
 
 .floating-card:hover {
@@ -4936,26 +4912,26 @@ body {
 
 /* Card Positioning */
 .floating-card.card-1 {
-    top: 20%;
-    left: -20%;
+    top: 15%; /* Energia Elettrica - leggermente più in alto */
+    right: 30%;
     animation-delay: 0s;
 }
 
 .floating-card.card-2 {
-    top: 10%;
-    right: -30%;
+    top: 33%; /* Gas Naturale - leggermente più in basso */
+    right: -5%;
     animation-delay: 1s;
 }
 
 .floating-card.card-3 {
-    bottom: 30%;
-    left: -30%;
+    bottom: 30%; /* Protezione ARERA - leggermente più in alto */
+    right: 20%;
     animation-delay: 2s;
 }
 
 .floating-card.card-4 {
-    bottom: 10%;
-    right: -20%;
+    bottom: 10%; /* Energia Verde - leggermente più in basso */
+    right: -10%;
     animation-delay: 3s;
 }
 
@@ -4971,7 +4947,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 5; /* Sotto le floating cards */
 }
 
 .energy-wave {
@@ -4985,14 +4961,14 @@ body {
 
 .energy-wave.wave-1 {
     top: 50%;
-    left: 50%;
+    left: 65%;
     transform: translate(-50%, -50%);
     animation-delay: 0s;
 }
 
 .energy-wave.wave-2 {
     top: 50%;
-    left: 50%;
+    left: 65%;
     transform: translate(-50%, -50%);
     animation-delay: 2s;
     width: 400px;
@@ -5001,7 +4977,7 @@ body {
 
 .energy-wave.wave-3 {
     top: 50%;
-    left: 50%;
+    left: 65%;
     transform: translate(-50%, -50%);
     animation-delay: 4s;
     width: 500px;
@@ -5020,18 +4996,96 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-container {
+        padding: 0 var(--space-4);
+    }
+    
+    .hero-content {
+        gap: var(--space-12);
+    }
+    
+    .floating-card.card-1 {
+        right: 15%;
+        top: 22%; /* Energia Elettrica - leggermente più in alto */
+    }
+    
+    .floating-card.card-2 {
+        right: -10%;
+        top: 38%; /* Gas Naturale - leggermente più in basso */
+    }
+    
+    .floating-card.card-3 {
+        right: 15%;
+        bottom: 38%; /* Protezione ARERA - leggermente più in alto */
+    }
+    
+    .floating-card.card-4 {
+        right: -10%;
+        bottom: 22%; /* Energia Verde - leggermente più in basso */
+    }
+}
+
 @media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: var(--space-8) 0;
+    }
+    
+    .hero-container {
+        padding: 0 var(--space-3);
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        text-align: center;
+        padding: var(--space-6) 0;
+    }
+    
+    .hero-text {
+        order: 1;
+        margin-bottom: var(--space-6);
+    }
+    
+    .hero-image {
+        order: 2;
+    }
+    
+    .hero-badge {
+        padding: var(--space-2) var(--space-4);
+        margin-bottom: var(--space-4);
+        font-size: var(--font-size-xs);
+    }
+    
+    .hero-title {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--space-4);
+    }
+    
+    .hero-title .title-main {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .hero-title .title-sub {
+        font-size: var(--font-size-lg);
+    }
+    
     .hero-benefits {
-        align-items: flex-start;
+        align-items: center;
+        margin: var(--space-4) 0;
     }
     
-    .trust-stats {
-        justify-content: space-between;
-        gap: var(--space-4);
+    .hero-cta {
+        margin-top: var(--space-4);
+        margin-bottom: var(--space-4);
+        justify-content: center;
     }
     
-    .trust-item {
-        flex: 1;
+    .btn {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
     }
     
     .floating-card {
@@ -5046,10 +5100,12 @@ body {
         left: auto;
         margin: var(--space-4) auto;
         max-width: 280px;
+        animation: none;
     }
     
     .main-visual-container {
         height: 300px;
+        padding: var(--space-4);
     }
     
     .energy-meter {
@@ -5057,7 +5113,68 @@ body {
         height: 150px;
     }
     
+    .meter-display i {
+        font-size: 2rem;
+    }
+    
+    .meter-value {
+        font-size: var(--font-size-xl);
+    }
+    
     .floating-elements .floating-icon {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-container {
+        padding: 0 var(--space-2);
+    }
+    
+    .hero-content {
+        padding: var(--space-4) 0;
+    }
+    
+    .hero-badge {
+        padding: var(--space-2) var(--space-3);
+        font-size: 11px;
+    }
+    
+    .hero-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .hero-title .title-main {
+        font-size: var(--font-size-xl);
+    }
+    
+    .hero-title .title-sub {
+        font-size: var(--font-size-base);
+    }
+    
+    .hero-description {
+        font-size: var(--font-size-sm);
+    }
+    
+    .hero-benefits .benefit-item {
+        font-size: var(--font-size-sm);
+    }
+    
+    .main-visual-container {
+        height: 250px;
+        padding: var(--space-2);
+    }
+    
+    .energy-meter {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .meter-display i {
+        font-size: 1.5rem;
+    }
+    
+    .meter-value {
+        font-size: var(--font-size-lg);
     }
 }
