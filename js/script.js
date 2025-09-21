@@ -1070,7 +1070,68 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Console message for developers
     console.log('🚀 MercatoTutelato.it loaded successfully!');
+    
+    // Initialize Timeline Countdown
+    new TimelineCountdown();
 });
+
+// Timeline Countdown Class
+class TimelineCountdown {
+    constructor() {
+        this.targetDate = new Date('2027-03-31T23:59:59');
+        this.countdownElement = document.getElementById('countdown');
+        this.daysElement = document.getElementById('days');
+        this.hoursElement = document.getElementById('hours');
+        this.minutesElement = document.getElementById('minutes');
+        
+        if (this.countdownElement) {
+            this.init();
+        }
+    }
+    
+    init() {
+        this.updateCountdown();
+        this.startTimer();
+    }
+    
+    updateCountdown() {
+        const now = new Date().getTime();
+        const distance = this.targetDate.getTime() - now;
+        
+        if (distance > 0) {
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            
+            if (this.daysElement) this.daysElement.textContent = days.toString().padStart(3, '0');
+            if (this.hoursElement) this.hoursElement.textContent = hours.toString().padStart(2, '0');
+            if (this.minutesElement) this.minutesElement.textContent = minutes.toString().padStart(2, '0');
+            
+            // Add urgency classes based on time remaining
+            if (days < 365) {
+                this.countdownElement.classList.add('urgent');
+            }
+            if (days < 180) {
+                this.countdownElement.classList.add('critical');
+            }
+        } else {
+            // Time expired
+            if (this.daysElement) this.daysElement.textContent = '000';
+            if (this.hoursElement) this.hoursElement.textContent = '00';
+            if (this.minutesElement) this.minutesElement.textContent = '00';
+            this.countdownElement.classList.add('expired');
+        }
+    }
+    
+    startTimer() {
+        setInterval(() => {
+            this.updateCountdown();
+        }, 60000); // Update every minute
+        
+        // Update immediately
+        this.updateCountdown();
+    }
+}
 
 // Global filter function for FAQ search
 function filterFAQs(searchTerm = '') {
