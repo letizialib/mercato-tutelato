@@ -29,7 +29,7 @@
                     <a href="mercato-tutelato.html" class="nav-link">Mercato Tutelato</a>
                     <a href="normativa.html" class="nav-link">Normativa</a>
                     <a href="confronto.html" class="nav-link">Confronto</a>
-                    <a href="offerte.html" class="nav-link">Offerte</a>
+                    <a href="#" class="nav-link" onclick="openContactModal('offerte'); return false;">Offerte</a>
                     <a href="faq.html" class="nav-link active">FAQ</a>
                 </div>
                 
@@ -597,7 +597,7 @@
                         <li><a href="mercato-tutelato.html">Mercato Tutelato</a></li>
                         <li><a href="normativa.html">Normativa</a></li>
                         <li><a href="confronto.html">Confronto</a></li>
-                        <li><a href="offerte.html">Offerte</a></li>
+                        <li><a href="#" onclick="openContactModal('offerte'); return false;">Offerte</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
@@ -637,6 +637,53 @@
             </div>
         </div>
     </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Compila i tuoi dati</h2>
+                <span class="close" onclick="closeContactModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Per continuare, inserisci i tuoi dati di contatto:</p>
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" required>
+                        <span class="error-message" id="nomeError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome">Cognome *</label>
+                        <input type="text" id="cognome" name="cognome" required>
+                        <span class="error-message" id="cognomeError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Numero di telefono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                        <span class="error-message" id="telefonoError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <span class="checkmark"></span>
+                            Accetto l'<a href="#" target="_blank">informativa sulla privacy</a> e autorizzo il trattamento dei miei dati personali *
+                        </label>
+                        <span class="error-message" id="privacyError"></span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeContactModal()">Annulla</button>
+                        <button type="submit" class="btn btn-primary">Continua</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>

@@ -21,7 +21,7 @@
                 <a href="mercato-tutelato.html" class="nav-link">Cos'è il Mercato Tutelato</a>
                 <a href="normativa.html" class="nav-link">Normativa</a>
                 <a href="confronto.html" class="nav-link">Confronto</a>
-                <a href="offerte.html" class="nav-link">Confronta Offerte</a>
+                <a href="#" class="nav-link" onclick="openContactModal('offerte'); return false;">Confronta Offerte</a>
                 <a href="faq.html" class="nav-link">FAQ</a>
                 <a href="#contatti" class="nav-link nav-cta">Contattaci</a>
             </div>
@@ -158,7 +158,7 @@
                         Confrontiamo le migliori offerte del mercato libero per trovare quella più 
                         adatta alle tue esigenze di consumo.
                     </p>
-                    <a href="offerte.html" class="service-link">
+                    <a href="#" class="service-link" onclick="openContactModal('offerte'); return false;">
                         Confronta ora <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -358,25 +358,25 @@
                     </div>
                 </div>
                 <div class="form-wrapper" data-aos="fade-left">
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="mainContactForm">
                         <div class="form-group">
-                            <label for="nome">Nome e Cognome</label>
-                            <input type="text" id="nome" name="nome" required>
+                            <label for="mainNome">Nome e Cognome</label>
+                            <input type="text" id="mainNome" name="nome" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Telefono</label>
-                            <input type="tel" id="telefono" name="telefono" required>
+                            <label for="mainTelefono">Telefono</label>
+                            <input type="tel" id="mainTelefono" name="telefono" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="mainEmail">Email</label>
+                            <input type="email" id="mainEmail" name="email" required>
                         </div>
 
                         <div class="form-group checkbox-group">
-                            <input type="checkbox" id="privacy" name="privacy" required>
-                            <label for="privacy">
+                            <input type="checkbox" id="mainPrivacy" name="privacy" required>
+                            <label for="mainPrivacy">
                                 Accetto la <a href="#privacy">privacy policy</a> e il trattamento dei dati personali
                             </label>
                         </div>
@@ -413,7 +413,7 @@
                         <li><a href="mercato-tutelato.html">Cos'è il Mercato Tutelato</a></li>
                         <li><a href="normativa.html">Normativa e Regolamenti</a></li>
                         <li><a href="confronto.html">Confronto Mercati</a></li>
-                        <li><a href="offerte.html">Confronta Offerte</a></li>
+                        <li><a href="#" onclick="openContactModal('offerte'); return false;">Confronta Offerte</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
@@ -457,6 +457,53 @@
             </div>
         </div>
     </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Compila i tuoi dati</h2>
+                <span class="close" onclick="closeContactModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Per continuare, inserisci i tuoi dati di contatto:</p>
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" required>
+                        <span class="error-message" id="nomeError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome">Cognome *</label>
+                        <input type="text" id="cognome" name="cognome" required>
+                        <span class="error-message" id="cognomeError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Numero di telefono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                        <span class="error-message" id="telefonoError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <span class="checkmark"></span>
+                            Accetto l'<a href="#" target="_blank">informativa sulla privacy</a> e autorizzo il trattamento dei miei dati personali *
+                        </label>
+                        <span class="error-message" id="privacyError"></span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeContactModal()">Annulla</button>
+                        <button type="submit" class="btn btn-primary">Continua</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop">
