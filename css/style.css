@@ -49,6 +49,7 @@
     --radius-base: 0.5rem;
     --radius-lg: 0.75rem;
     --radius-xl: 1rem;
+    --radius-6xl: 8rem;
     --radius-full: 9999px;
     
     /* Shadows */
@@ -290,7 +291,8 @@ body {
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1.4fr 0.6fr;
+    /* left column for text, right column reserved for the visual (50/50) */
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-16);
     align-items: center;
     min-height: 100vh;
@@ -485,7 +487,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 550px;
+    height: auto;
     z-index: 4;
     padding: var(--space-4);
 }
@@ -493,12 +495,79 @@ body {
 .main-visual-container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     padding-right: 0;
-    margin-right: -10%;
+    margin-right: 0; /* remove offset so the image stays within its column */
+}
+
+/* Make sure image fills its column */
+.hero-image, .main-visual-container img, .main-visual-container .hero-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr; /* stack vertically */
+    }
+    .hero-visual {
+        order: 2;
+        padding: var(--space-4) 0;
+    }
+}
+
+/* Make the hero visual extend to the right edge of the viewport */
+.hero { /* root hero section should be relative to allow absolute positioning inside */
+    position: relative;
+    overflow: visible;
+}
+
+.hero .main-visual-container {
+    position: absolute;
+    /* shift outward so the container's right edge sits flush with the viewport edge
+       (the element is positioned relative to the centered .hero-container) */
+    right: calc((100% - 50vw));
+    top: 0;
+    width: 50vw; /* visually occupy the right half of the screen */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.hero .main-visual-container .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: var(--radius-full);
+    border-bottom-left-radius: var(--radius-full);
+}
+
+@media (max-width: 1024px) {
+    /* reduce the visual width on medium screens to avoid covering nav */
+    .hero .main-visual-container {
+        width: 48vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero .main-visual-container {
+        position: static;
+        width: 100%;
+        height: auto;
+        order: 2;
+    }
+    .hero .main-visual-container .hero-photo {
+        border-top-left-radius: var(--radius-lg);
+        border-bottom-left-radius: var(--radius-lg);
+        height: auto;
+    }
 }
 
 .floating-card {
@@ -2130,7 +2199,11 @@ body {
   height: 100%;
   max-height: 650px;
   object-fit: cover;
-  border-radius: var(--radius-2xl);
+    /* Use full radius for a semicircular left edge */
+    border-top-left-radius: var(--radius-full);
+    border-bottom-left-radius: var(--radius-full);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.15),
     0 0 0 1px rgba(255, 255, 255, 0.1);
@@ -2148,7 +2221,11 @@ body {
 @media (max-width: 768px) {
   .hero-photo {
         max-height: 400px;
-    border-radius: var(--radius-lg);
+        /* On small screens keep a smaller radius to avoid layout issues */
+        border-top-left-radius: var(--radius-lg);
+        border-bottom-left-radius: var(--radius-lg);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
   }
 }
 
@@ -6250,7 +6327,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../pexels-marcus-aurelius-6787959.jpg') center center / cover no-repeat;
+    /* Prefer custom hero image; fallback to bundled Pexels photo when missing */
+    background-image: url('../img/hero-coppia-tablet.jpg'), url('../pexels-marcus-aurelius-6787959.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
     opacity: 1;
     z-index: 1;
 }
@@ -7012,20 +7093,27 @@ body {
 
 /* Hero image replacement styles */
 .hero-photo {
-  width: auto;
-  height: 100vh;
-  min-height: 100vh;
-  object-fit: cover;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-xl);
+    width: auto;
+    height: 100vh;
+    min-height: 100vh;
+    object-fit: cover;
+    /* ensure left semicircle is enforced here too */
+    border-top-left-radius: var(--radius-full);
+    border-bottom-left-radius: var(--radius-full);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: var(--shadow-xl);
 }
 
 @media (max-width: 768px) {
-  .hero-photo {
-    height: 100vh;
-    min-height: 100vh;
-    border-radius: var(--radius-lg);
-  }
+    .hero-photo {
+        height: 100vh;
+        min-height: 100vh;
+        border-top-left-radius: var(--radius-lg);
+        border-bottom-left-radius: var(--radius-lg);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 }
 
 /* Legal Pages Styles */
