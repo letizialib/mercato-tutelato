@@ -1139,6 +1139,183 @@ function filterFAQs(searchTerm = '') {
     faqManager.filterFAQs(searchTerm);
 }
 
+// Contact Form Modal Management
+let currentAction = null;
+
+function openContactModal(action) {
+    currentAction = action;
+    const modal = document.getElementById('contactModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        
+        // Reset form
+        resetContactForm();
+    }
+}
+
+function closeContactModal() {
+    const modal = document.getElementById('contactModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        currentAction = null;
+    }
+}
+
+function resetContactForm() {
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.reset();
+        // Clear all error messages
+        const errorMessages = form.querySelectorAll('.error-message');
+        errorMessages.forEach(error => error.textContent = '');
+    }
+}
+
+function validateField(fieldName, value) {
+    const errors = {
+        nome: '',
+        cognome: '',
+        telefono: '',
+        email: '',
+        privacy: ''
+    };
+
+    switch (fieldName) {
+        case 'nome':
+        case 'cognome':
+            if (!value || value.trim().length < 2) {
+                errors[fieldName] = 'Questo campo deve contenere almeno 2 caratteri';
+            } else if (!/^[a-zA-ZÀ-ÿ\s']+$/.test(value.trim())) {
+                errors[fieldName] = 'Questo campo può contenere solo lettere e spazi';
+            }
+            break;
+            
+        case 'telefono':
+            if (!value || value.trim().length === 0) {
+                errors.telefono = 'Il numero di telefono è obbligatorio';
+            } else if (!/^[\+]?[0-9\s\-\(\)]{8,15}$/.test(value.trim())) {
+                errors.telefono = 'Inserisci un numero di telefono valido';
+            }
+            break;
+            
+        case 'email':
+            if (!value || value.trim().length === 0) {
+                errors.email = 'L\'email è obbligatoria';
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) {
+                errors.email = 'Inserisci un indirizzo email valido';
+            }
+            break;
+            
+        case 'privacy':
+            if (!value) {
+                errors.privacy = 'Devi accettare l\'informativa sulla privacy per continuare';
+            }
+            break;
+    }
+
+    return errors[fieldName];
+}
+
+function showFieldError(fieldName, errorMessage) {
+    const errorElement = document.getElementById(fieldName + 'Error');
+    if (errorElement) {
+        errorElement.textContent = errorMessage;
+    }
+}
+
+function validateContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return false;
+
+    const formData = new FormData(form);
+    let isValid = true;
+
+    // Validate all fields
+    const fields = ['nome', 'cognome', 'telefono', 'email'];
+    fields.forEach(fieldName => {
+        const value = formData.get(fieldName);
+        const error = validateField(fieldName, value);
+        showFieldError(fieldName, error);
+        if (error) isValid = false;
+    });
+
+    // Validate privacy checkbox
+    const privacyChecked = formData.get('privacy') === 'on';
+    const privacyError = validateField('privacy', privacyChecked);
+    showFieldError('privacy', privacyError);
+    if (privacyError) isValid = false;
+
+    return isValid;
+}
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    if (validateContactForm()) {
+        // Form is valid, proceed with the action
+        const form = document.getElementById('contactForm');
+        const formData = new FormData(form);
+        
+        // You can send the data to a server here
+        console.log('Form data:', Object.fromEntries(formData));
+        
+        // Close modal
+        closeContactModal();
+        
+        // Redirect to confronta offerte page for both actions
+        window.location.href = 'offerte.html';
+    }
+}
+
+// Close modal when clicking outside of it
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('contactModal');
+    if (event.target === modal) {
+        closeContactModal();
+    }
+});
+
+// Close modal on escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeContactModal();
+    }
+});
+
+// Add real-time validation to form fields
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    if (form) {
+        // Add input event listeners for real-time validation
+        const fields = ['nome', 'cognome', 'telefono', 'email'];
+        fields.forEach(fieldName => {
+            const field = document.getElementById(fieldName);
+            if (field) {
+                field.addEventListener('blur', function() {
+                    const error = validateField(fieldName, this.value);
+                    showFieldError(fieldName, error);
+                });
+                
+                field.addEventListener('input', function() {
+                    // Clear error message when user starts typing
+                    showFieldError(fieldName, '');
+                });
+            }
+        });
+        
+        // Privacy checkbox validation
+        const privacyField = document.getElementById('privacy');
+        if (privacyField) {
+            privacyField.addEventListener('change', function() {
+                const error = validateField('privacy', this.checked);
+                showFieldError('privacy', error);
+            });
+        }
+    }
+});
+
 // Handle page visibility changes
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
