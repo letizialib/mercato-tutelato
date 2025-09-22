@@ -15,29 +15,23 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">
-                    <a href="index.html">
-                        <i class="fas fa-bolt"></i>
-                        <span>Mercato Tutelato</span>
-                    </a>
-                </div>
-                
-                <div class="nav-menu" id="navMenu">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="mercato-tutelato.html" class="nav-link">Mercato Tutelato</a>
-                    <a href="normativa.html" class="nav-link">Normativa</a>
-                    <a href="confronto.html" class="nav-link">Confronto</a>
-                    <a href="#" class="nav-link active" onclick="openContactModal('offerte'); return false;">Offerte</a>
-                    <a href="faq.html" class="nav-link">FAQ</a>
-                </div>
-                
-                <div class="nav-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">MercatoTutelato</a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="mercato-tutelato.html" class="nav-link">Cos'è il Mercato Tutelato</a>
+                <a href="normativa.html" class="nav-link">Normativa</a>
+                <a href="confronto.html" class="nav-link">Confronto</a>
+                <a href="#" class="nav-link active" onclick="openContactModal('offerte'); return false;">Confronta Offerte</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="index.html#contatti" class="nav-link nav-cta">Contattaci</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
     </nav>
@@ -583,66 +577,67 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="contatti">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fas fa-bolt"></i>
-                        <span>Mercato Tutelato</span>
-                    </div>
-                    <p>Il tuo punto di riferimento per comprendere e navigare la transizione energetica italiana.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    <h3 class="footer-title">MercatoTutelato.it</h3>
+                    <p class="footer-description">
+                        Portale informativo indipendente per la transizione dal mercato tutelato al mercato libero dell'energia.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h4>Sezioni</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="mercato-tutelato.html">Mercato Tutelato</a></li>
-                        <li><a href="normativa.html">Normativa</a></li>
-                        <li><a href="confronto.html">Confronto</a></li>
-                        <li><a href="#" onclick="openContactModal('offerte'); return false;">Offerte</a></li>
+                    <h4 class="footer-subtitle">Link Utili</h4>
+                    <ul class="footer-links">
+                        <li><a href="mercato-tutelato.html">Cos'è il Mercato Tutelato</a></li>
+                        <li><a href="normativa.html">Normativa e Regolamenti</a></li>
+                        <li><a href="confronto.html">Confronto Mercati</a></li>
+                        <li><a href="#" onclick="openContactModal('offerte'); return false;">Confronta Offerte</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h4>Risorse</h4>
-                    <ul>
-                        <li><a href="#">Guide</a></li>
-                        <li><a href="#">Calcolatori</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Glossario</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contatti</h4>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>info@mercatotutelato.it</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>800.123.456</span>
-                        </div>
+                    <h4 class="footer-subtitle">Contatti</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> info@mercatotutelato.it</p>
+                        <p><i class="fas fa-phone"></i> +39 02 1234 5678</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Milano, Italia</p>
                     </div>
                 </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Newsletter</h4>
+                    <p>Ricevi aggiornamenti sulle novità del mercato energetico</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="La tua email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2024 Mercato Tutelato. Tutti i diritti riservati.</p>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Cookie Policy</a>
-                    <a href="#">Termini di Servizio</a>
+                <div class="footer-disclaimer">
+                    <p>
+                        <strong>Disclaimer:</strong> MercatoTutelato.it è un portale informativo indipendente, 
+                        non collegato ad ARERA o ad altri enti pubblici. Le informazioni hanno finalità divulgative. 
+                        I dati raccolti tramite form possono essere utilizzati per finalità di consulenza e marketing, 
+                        in conformità con il GDPR.
+                    </p>
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2024 MercatoTutelato.it - Tutti i diritti riservati</p>
+                    <div class="legal-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#cookie">Cookie Policy</a>
+                        <a href="#termini">Termini di Servizio</a>
+                    </div>
                 </div>
             </div>
         </div>
