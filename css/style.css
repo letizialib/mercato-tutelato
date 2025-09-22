@@ -532,7 +532,7 @@ body {
        (the element is positioned relative to the centered .hero-container) */
     right: calc((100% - 50vw));
     top: 0;
-    width: 50vw; /* visually occupy the right half of the screen */
+    width: 45vw; /* visually occupy the right half of the screen */
     height: 100%;
     display: flex;
     align-items: center;
@@ -547,12 +547,48 @@ body {
     object-fit: cover;
     border-top-left-radius: var(--radius-full);
     border-bottom-left-radius: var(--radius-full);
+    /* Subtle yellow-tinted glow to harmonize with hero accents */
+    filter: drop-shadow(-22px 0 36px rgba(251, 191, 36, 0.18))
+            drop-shadow(-6px 0 14px rgba(251, 191, 36, 0.25));
+}
+
+/* Warm left-edge overlay that blends into the hero image */
+.hero .main-visual-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: clamp(80px, 12vw, 220px);
+    background: linear-gradient(
+        to right,
+        rgba(251, 191, 36, 0.28) 0%,
+        rgba(251, 191, 36, 0.12) 40%,
+        rgba(251, 191, 36, 0.0) 85%
+    );
+    pointer-events: none;
+    z-index: 2; /* above image, below floating cards */
+    border-top-left-radius: var(--radius-full);
+    border-bottom-left-radius: var(--radius-full);
 }
 
 @media (max-width: 1024px) {
     /* reduce the visual width on medium screens to avoid covering nav */
     .hero .main-visual-container {
         width: 48vw;
+    }
+    .hero .main-visual-container::before {
+        width: clamp(60px, 16vw, 160px);
+        background: linear-gradient(
+            to right,
+            rgba(251, 191, 36, 0.20) 0%,
+            rgba(251, 191, 36, 0.10) 40%,
+            rgba(251, 191, 36, 0.0) 80%
+        );
+    }
+    .hero .main-visual-container .hero-photo {
+        filter: drop-shadow(-16px 0 28px rgba(251, 191, 36, 0.14))
+                drop-shadow(-4px 0 10px rgba(251, 191, 36, 0.18));
     }
 }
 
@@ -567,6 +603,19 @@ body {
         border-top-left-radius: var(--radius-lg);
         border-bottom-left-radius: var(--radius-lg);
         height: auto;
+        filter: drop-shadow(-10px 0 18px rgba(251, 191, 36, 0.12))
+                drop-shadow(-3px 0 8px rgba(251, 191, 36, 0.16));
+    }
+    .hero .main-visual-container::before {
+        width: clamp(40px, 20vw, 120px);
+        background: linear-gradient(
+            to right,
+            rgba(251, 191, 36, 0.16) 0%,
+            rgba(251, 191, 36, 0.08) 40%,
+            rgba(251, 191, 36, 0.0) 75%
+        );
+        border-top-left-radius: var(--radius-lg);
+        border-bottom-left-radius: var(--radius-lg);
     }
 }
 
