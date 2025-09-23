@@ -2691,6 +2691,8 @@ body {
     height: 80px;
     padding: var(--space-3);
     animation: float 3s ease-in-out infinite;
+    /* Assicurati che le card fluttuanti stiano sopra la main-card */
+    z-index: 3;
 }
 
 .floating-card-1 {
@@ -2706,9 +2708,12 @@ body {
 }
 
 .floating-card-3 {
-    bottom: 20%;
+    /* Posiziona più in basso rispetto alla versione precedente e rimani sotto la main-card */
+    bottom: 5%;
     left: 20%;
     animation-delay: -0.5s;
+    /* Mantienila sotto la main-card (main-card ha z-index:2) */
+    z-index: 1;
 }
 
 .floating-card-1 i,
