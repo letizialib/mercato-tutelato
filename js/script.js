@@ -214,16 +214,22 @@ class StatsCounter {
             const duration = 2000;
             const increment = target / (duration / 16);
             let current = 0;
-            
+            const countNode = stat.querySelector('.count');
+
             const timer = setInterval(() => {
                 current += increment;
-                
+
                 if (current >= target) {
                     current = target;
                     clearInterval(timer);
                 }
-                
-                stat.textContent = Math.floor(current);
+
+                const displayValue = Math.floor(current);
+                if (countNode) {
+                    countNode.textContent = displayValue;
+                } else {
+                    stat.textContent = displayValue;
+                }
             }, 16);
         });
     }
