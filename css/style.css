@@ -5,6 +5,85 @@
     box-sizing: border-box;
 }
 
+/* ======================================================
+     Hero: comportamento unificato per tutti gli schermi ≤1200px
+     - Nessuna differenza tra 118px, 600px, ecc. per la sezione hero
+     - Unifica immagine, CTA e bordi inferiori come nel layout ≤1200px
+     - Mantiene la differenza solo tra ≤1200px e >1200px
+     ====================================================== */
+@media (max-width: 1200px) {
+    /* Bordi inferiori: niente curve su nessuna larghezza sotto i 1200px */
+    .hero {
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        min-height: 0 !important;
+        height: auto !important;
+        padding-bottom: 0 !important;
+        align-items: flex-start;
+        padding-top: calc(70px + var(--space-6));
+    }
+
+    /* Immagine: mantieni lo stesso trattamento su tutte le larghezze ≤1200px */
+    .hero-visual {
+        height: auto;
+        padding-top: var(--space-3);
+        padding-bottom: var(--space-3);
+    }
+    .hero .main-visual-container {
+        position: static;
+        width: 100vw;
+        max-width: none;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        padding: 0;
+        height: 420px;
+        overflow: hidden;
+    }
+    .hero .main-visual-container .hero-photo {
+        width: 100%;
+        max-width: 100%;
+        height: 420px;
+        max-height: 420px;
+        object-fit: cover;
+        object-position: center 85%;
+        transform: translateY(24px);
+        border-radius: 0;
+        filter: none;
+    }
+    .hero .main-visual-container::before {
+        display: none !important;
+    }
+    .hero .golden-glow-left,
+    .hero .golden-glow-right {
+        display: none !important;
+    }
+    .hero::before,
+    .hero::after,
+    .hero-background,
+    .hero-overlay,
+    .floating-elements {
+        bottom: 0 !important;
+        max-height: none !important;
+    }
+
+    /* CTA: stesso sizing su tutte le larghezze ≤1200px (niente full width forzato) */
+    .hero .btn-pulse {
+        width: auto;
+        justify-content: center;
+        padding: var(--space-5) var(--space-8);
+        font-size: var(--font-size-lg);
+    }
+    .hero .btn-content {
+        align-items: center;
+    }
+    .hero .btn-main {
+        font-size: var(--font-size-xl);
+    }
+    .hero .btn-sub {
+        font-size: var(--font-size-base);
+    }
+}
+
 :root {
     /* Color Palette - Colori istituzionali come richiesto */
     --primary-color: #1e40af;      /* Blu istituzionale */
