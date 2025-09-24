@@ -11,6 +11,77 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- FAQ Emergency CSS -->
+    <style>
+        /* Reset FAQ styles to ensure they work */
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 24px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: background-color 0.2s;
+        }
+        
+        .faq-question:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .faq-question i {
+            color: #ff6b35;
+            transition: transform 0.2s;
+            font-size: 16px;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 2000px;
+            transition: max-height 0.5s ease-in;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active {
+            border-left: 4px solid #22c55e;
+        }
+        
+        .answer-content {
+            padding: 0 24px 24px 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        /* Hide elements with display none */
+        .faq-group[style*="display: none"] {
+            display: none !important;
+        }
+        
+        .faq-item[style*="display: none"] {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -65,6 +136,8 @@
                         <button class="suggestion-tag" data-search="costi cambio fornitore">Costi</button>
                         <button class="suggestion-tag" data-search="energia verde sostenibile">Energia verde</button>
                     </div>
+                    
+                    
                 </div>
             </div>
         </section>
@@ -147,7 +220,8 @@
                             </button>
                             <div class="faq-answer">
                                 <div class="answer-content">
-                                    <p>Il mercato tutelato è un regime di fornitura dell'energia elettrica in cui i prezzi sono fissati dall'Autorità di Regolazione per Energia Reti e Ambiente (ARERA) ogni tre mesi. È rivolto principalmente ai clienti domestici e alle piccole imprese che non hanno scelto un fornitore nel mercato libero.</p>
+                                    <p>Il mercato tutelato (o "servizio di maggior tutela") era un regime nel quale l'Autorità (ARERA) fissava le condizioni economiche (prezzi, tariffe, oneri) per la fornitura elettrica ai clienti domestici che non avevano scelto un fornitore nel mercato libero.</p>
+                                    <p>Dal 1° luglio 2024, per i clienti non vulnerabili, questo regime è stato sostituito dal <strong>Servizio a Tutele Graduali (STG)</strong>.</p>
                                     <div class="answer-highlights">
                                         <div class="highlight-item">
                                             <i class="fas fa-check"></i>
@@ -159,7 +233,7 @@
                                         </div>
                                         <div class="highlight-item">
                                             <i class="fas fa-check"></i>
-                                            <span>Protezione per i consumatori</span>
+                                            <span>Sostituito dal STG dal 1° luglio 2024</span>
                                         </div>
                                     </div>
                                 </div>
@@ -173,15 +247,27 @@
                             </button>
                             <div class="faq-answer">
                                 <div class="answer-content">
-                                    <p>Il mercato tutelato dell'energia elettrica terminerà il <strong>10 gennaio 2024</strong> per i clienti domestici non vulnerabili. I clienti vulnerabili (over 75, disabili, utenti in disagio economico, ecc.) continueranno ad avere accesso al Servizio a Tutele Graduali.</p>
+                                    <p>Per l'energia elettrica: il mercato tutelato per i clienti non vulnerabili è terminato il <strong>1° luglio 2024</strong>. I clienti vulnerabili possono continuare ad accedere a una forma di tutela (o richiedere il Servizio a Tutele Graduali) fino al <strong>30 giugno 2025</strong>.</p>
+                                    <p>Per il gas: il mercato tutelato è terminato per i clienti domestici non vulnerabili il <strong>31 dicembre 2023</strong>. Questi clienti sono passati al mercato libero o a offerte PLACET (prezzi regolati dall'ARERA ma con venditori liberalizzati).</p>
                                     <div class="timeline-info">
                                         <div class="timeline-item">
-                                            <div class="timeline-date">10 Gennaio 2024</div>
-                                            <div class="timeline-desc">Fine mercato tutelato per clienti non vulnerabili</div>
+                                            <div class="timeline-date">31 Dicembre 2023</div>
+                                            <div class="timeline-desc">Fine mercato tutelato gas per clienti non vulnerabili</div>
                                         </div>
                                         <div class="timeline-item">
-                                            <div class="timeline-date">Oltre 2024</div>
-                                            <div class="timeline-desc">Servizio a Tutele Graduali per clienti vulnerabili</div>
+                                            <div class="timeline-date">1° Luglio 2024</div>
+                                            <div class="timeline-desc">Fine mercato tutelato luce per clienti non vulnerabili</div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-date">30 Giugno 2025</div>
+                                            <div class="timeline-desc">Fine tutela per clienti vulnerabili</div>
+                                        </div>
+                                    </div>
+                                    <div class="warning-box">
+                                        <i class="fas fa-info-circle"></i>
+                                        <div>
+                                            <strong>Nota importante:</strong>
+                                            <span>È stato proposto un rinvio della fine delle tutele per i clienti vulnerabili fino al 2027, ma si tratta di una misura ancora in discussione che va verificata nella normativa definitiva.</span>
                                         </div>
                                     </div>
                                 </div>
@@ -195,37 +281,45 @@
                             </button>
                             <div class="faq-answer">
                                 <div class="answer-content">
-                                    <p>I clienti vulnerabili sono categorie di utenti che necessitano di particolare protezione e possono continuare ad accedere al servizio a tutele graduali anche dopo la fine del mercato tutelato.</p>
+                                    <p>I clienti vulnerabili sono quelli che, per condizioni economiche, di salute o età, necessitano di protezioni speciali. Alcune categorie riconosciute includono:</p>
                                     <div class="vulnerable-categories">
                                         <div class="category-item">
                                             <i class="fas fa-user-clock"></i>
                                             <div>
                                                 <strong>Over 75</strong>
-                                                <span>Clienti con più di 75 anni</span>
-                                            </div>
-                                        </div>
-                                        <div class="category-item">
-                                            <i class="fas fa-wheelchair"></i>
-                                            <div>
-                                                <strong>Persone con disabilità</strong>
-                                                <span>Titolari di legge 104/92</span>
-                                            </div>
-                                        </div>
-                                        <div class="category-item">
-                                            <i class="fas fa-home-heart"></i>
-                                            <div>
-                                                <strong>Isole minori</strong>
-                                                <span>Residenti nelle isole minori non interconnesse</span>
+                                                <span>Persone con età superiore ai 75 anni</span>
                                             </div>
                                         </div>
                                         <div class="category-item">
                                             <i class="fas fa-hand-holding-heart"></i>
                                             <div>
                                                 <strong>Disagio economico</strong>
-                                                <span>Beneficiari del bonus sociale</span>
+                                                <span>Chi beneficia del bonus sociale energia per disagio economico</span>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <i class="fas fa-wheelchair"></i>
+                                            <div>
+                                                <strong>Persone con disabilità</strong>
+                                                <span>Persone con disabilità ai sensi della legge 104/92</span>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <i class="fas fa-heartbeat"></i>
+                                            <div>
+                                                <strong>Apparecchiature salvavita</strong>
+                                                <span>Chi utilizza apparecchiature mediche salvavita alimentate da energia elettrica</span>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <i class="fas fa-home-heart"></i>
+                                            <div>
+                                                <strong>Isole minori</strong>
+                                                <span>Chi risiede in isole non interconnesse, o in moduli abitativi di emergenza a seguito di eventi calamitosi</span>
                                             </div>
                                         </div>
                                     </div>
+                                    <p><strong>Queste categorie possono usufruire del regime di tutela anche dopo che il mercato tutelato tradizionale è cessato per i non vulnerabili.</strong></p>
                                 </div>
                             </div>
                         </div>
@@ -240,12 +334,14 @@
 
                         <div class="faq-item">
                             <button class="faq-question">
-                                <span>Cosa succede se non scelgo un fornitore entro gennaio 2024?</span>
+                                <span>Cosa succede se non scelgo un fornitore entro le scadenze?</span>
                                 <i class="fas fa-chevron-down"></i>
                             </button>
                             <div class="faq-answer">
                                 <div class="answer-content">
-                                    <p>Se non scegli un fornitore nel mercato libero entro il 10 gennaio 2024, verrai automaticamente assegnato al Servizio a Tutele Graduali. Questo servizio avrà prezzi simili al mercato libero ma con alcune garanzie.</p>
+                                    <p><strong>Per l'elettricità:</strong> se un cliente non vulnerabile non sceglie un fornitore entro il 1° luglio 2024, verrà automaticamente inserito nel <strong>Servizio a Tutele Graduali (STG)</strong> con un fornitore selezionato tramite aste su base territoriale.</p>
+                                    <p><strong>Per i clienti vulnerabili</strong> che vogliono restare protetti, devono richiedere l'accesso al servizio appropriato entro il 30 giugno 2025, se non hanno già la tutela.</p>
+                                    <p><strong>Per il gas:</strong> il mercato tutelato è terminato per i clienti domestici non vulnerabili il 31 dicembre 2023. Questi clienti sono passati al mercato libero o a offerte PLACET (prezzi regolati dall'ARERA ma con venditori liberalizzati).</p>
                                     <div class="warning-box">
                                         <i class="fas fa-exclamation-triangle"></i>
                                         <div>
@@ -344,27 +440,32 @@
                             </button>
                             <div class="faq-answer">
                                 <div class="answer-content">
-                                    <p>Il mercato libero offre numerosi vantaggi rispetto al mercato tutelato:</p>
+                                    <p>Il mercato libero offre numerosi vantaggi:</p>
                                     <div class="advantages-grid">
                                         <div class="advantage-card">
-                                            <i class="fas fa-percentage"></i>
-                                            <strong>Prezzi competitivi</strong>
-                                            <span>Possibilità di risparmiare sulla bolletta</span>
-                                        </div>
-                                        <div class="advantage-card">
-                                            <i class="fas fa-cogs"></i>
-                                            <strong>Servizi personalizzati</strong>
-                                            <span>Offerte su misura per le tue esigenze</span>
+                                            <i class="fas fa-hand-pointer"></i>
+                                            <strong>Libertà di scelta</strong>
+                                            <span>Libertà di scegliere il fornitore e l'offerta che meglio si adatta ai propri consumi e preferenze (tariffa fissa, variabile, oraria, ecc.)</span>
                                         </div>
                                         <div class="advantage-card">
                                             <i class="fas fa-leaf"></i>
                                             <strong>Energia verde</strong>
-                                            <span>Possibilità di scegliere fonti rinnovabili</span>
+                                            <span>Possibilità di offerte "energia verde" con certificati di garanzia d'origine, che garantiscono energia da fonti rinnovabili</span>
                                         </div>
                                         <div class="advantage-card">
-                                            <i class="fas fa-mobile-alt"></i>
-                                            <strong>Servizi digitali</strong>
-                                            <span>App, bolletta online, gestione smart</span>
+                                            <i class="fas fa-gift"></i>
+                                            <strong>Promozioni e servizi</strong>
+                                            <span>Promozioni, sconti, servizi accessori (app per monitorare i consumi, assistenza personalizzata)</span>
+                                        </div>
+                                        <div class="advantage-card">
+                                            <i class="fas fa-percentage"></i>
+                                            <strong>Potenziale risparmio</strong>
+                                            <span>Potenziale risparmio se si trova un'offerta più competitiva rispetto alla tariffa STG o tutela</span>
+                                        </div>
+                                        <div class="advantage-card">
+                                            <i class="fas fa-eye"></i>
+                                            <strong>Trasparenza</strong>
+                                            <span>Trasparenza nel contratto, con possibilità di recesso e cambiamento</span>
                                         </div>
                                     </div>
                                 </div>
@@ -378,30 +479,34 @@
                             </button>
                             <div class="faq-answer">
                                 <div class="answer-content">
-                                    <p>Per valutare la convenienza di un'offerta energetica, considera questi elementi chiave:</p>
+                                    <p>Per valutare un'offerta:</p>
                                     <div class="evaluation-checklist">
                                         <div class="checklist-section">
                                             <h4><i class="fas fa-euro-sign"></i> Componenti di prezzo</h4>
                                             <ul>
-                                                <li>Prezzo della componente energia (€/kWh)</li>
-                                                <li>Costi fissi mensili o annuali</li>
-                                                <li>Eventuali promozioni o sconti</li>
+                                                <li>Controlla il prezzo dell'energia (€/kWh) e se è fisso o variabile</li>
+                                                <li>Verifica le spese fisse (costanti) e le condizioni di rete, dispacciamento, oneri di sistema, imposte</li>
+                                                <li>Verifica la struttura oraria (es. fasce diurne / notturne)</li>
                                             </ul>
                                         </div>
                                         <div class="checklist-section">
                                             <h4><i class="fas fa-file-contract"></i> Condizioni contrattuali</h4>
                                             <ul>
-                                                <li>Durata dell'offerta</li>
-                                                <li>Modalità di adeguamento prezzi</li>
-                                                <li>Penali per recesso anticipato</li>
+                                                <li>Guarda la durata del vincolo (es. 12 mesi, 24 mesi) e cosa succede alla fine del periodo</li>
+                                                <li>Leggi le clausole di recesso, eventuali penali o costi d'uscita</li>
                                             </ul>
                                         </div>
                                         <div class="checklist-section">
                                             <h4><i class="fas fa-star"></i> Servizi aggiuntivi</h4>
                                             <ul>
-                                                <li>Qualità del servizio clienti</li>
-                                                <li>Strumenti digitali disponibili</li>
-                                                <li>Programmi fedeltà o benefit</li>
+                                                <li>Considera servizi aggiuntivi inclusi (energia verde, app, monitoraggio, sconti)</li>
+                                            </ul>
+                                        </div>
+                                        <div class="checklist-section">
+                                            <h4><i class="fas fa-calculator"></i> Confronto</h4>
+                                            <ul>
+                                                <li><strong>Confronta la stima annuale in base ai tuoi consumi reali usando comparatori</strong></li>
+                                                <li>ARERA mette a disposizione il <strong>Portale Offerte</strong> dove puoi stimare la spesa annua comparando le offerte</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -424,36 +529,45 @@
                             </button>
                             <div class="faq-answer">
                                 <div class="answer-content">
-                                    <p>La bolletta dell'energia elettrica è composta da diverse voci. Ecco le principali:</p>
+                                    <p>La bolletta dell'energia elettrica è divisa in diverse voci principali:</p>
                                     <div class="bill-breakdown">
                                         <div class="bill-component">
                                             <div class="component-icon energy">PE</div>
                                             <div class="component-info">
-                                                <strong>Spesa per l'energia</strong>
-                                                <span>Costo dell'energia consumata (~45% del totale)</span>
+                                                <strong>Materia energia</strong>
+                                                <span>Costo relativo ai kWh consumati in base all'offerta (~45% del totale)</span>
                                             </div>
                                         </div>
                                         <div class="bill-component">
                                             <div class="component-icon transport">TR</div>
                                             <div class="component-info">
-                                                <strong>Trasporto e gestione contatore</strong>
-                                                <span>Costi per la rete di distribuzione (~15% del totale)</span>
+                                                <strong>Costi di rete e dispacciamento</strong>
+                                                <span>Per trasmissione, distribuzione e bilanciamento (~15% del totale)</span>
                                             </div>
                                         </div>
                                         <div class="bill-component">
                                             <div class="component-icon system">ON</div>
                                             <div class="component-info">
                                                 <strong>Oneri di sistema</strong>
-                                                <span>Costi per incentivi rinnovabili e servizi (~20% del totale)</span>
+                                                <span>Tasse e imposte (~20% del totale)</span>
                                             </div>
                                         </div>
                                         <div class="bill-component">
                                             <div class="component-icon taxes">IM</div>
                                             <div class="component-info">
-                                                <strong>Imposte e IVA</strong>
-                                                <span>Tasse statali e regionali (~20% del totale)</span>
+                                                <strong>Costi fissi / spese di vendita</strong>
+                                                <span>Parte fissa che non dipende dal consumo</span>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="info-box">
+                                        <i class="fas fa-info-circle"></i>
+                                        <p><strong>Altre informazioni utili nella bolletta:</strong></p>
+                                        <ul>
+                                            <li>Dettaglio consumi: letture reali o stimate, periodo di fatturazione e eventuali conguagli</li>
+                                            <li>Informazioni contrattuali: condizioni, scadenza, modalità di recesso, codici del contratto (es. POD per la luce)</li>
+                                        </ul>
+                                        <p>È utile guardare ogni singola voce per capire quanto pesa ciascuna componente sul totale.</p>
                                     </div>
                                 </div>
                             </div>
@@ -474,7 +588,8 @@
                             </button>
                             <div class="faq-answer">
                                 <div class="answer-content">
-                                    <p>L'energia verde è elettricità prodotta esclusivamente da fonti rinnovabili. Nel mercato italiano è garantita tramite i Certificati di Garanzia d'Origine (GO).</p>
+                                    <p>L'"energia verde" indica che il fornitore acquista energia prodotta da fonti rinnovabili (solare, eolico, idroelettrico, biomasse).</p>
+                                    <p><strong>Poiché in rete circola energia mista</strong>, per garantire che quella acquistata sia "verde" si utilizzano <strong>certificati di garanzia d'origine</strong>, che attestano la corrispondenza tra consumo e produzione rinnovabile.</p>
                                     <div class="green-sources">
                                         <div class="source-item">
                                             <i class="fas fa-solar-panel"></i>
@@ -495,7 +610,7 @@
                                     </div>
                                     <div class="info-box">
                                         <i class="fas fa-info-circle"></i>
-                                        <p>I Certificati GO garantiscono che l'energia che consumi sia stata effettivamente prodotta da fonti rinnovabili, anche se fisicamente ricevi energia dal mix energetico nazionale.</p>
+                                        <p><strong>Come funzionano i certificati:</strong> Questi certificati sono strumenti regolamentati che fanno da "contabilità virtuale" per garantire che l'energia venduta come verde abbia una contropartita reale da fonti rinnovabili. I Certificati di Garanzia d'Origine attestano che l'energia che consumi sia stata effettivamente prodotta da fonti rinnovabili, anche se fisicamente ricevi energia dal mix energetico nazionale.</p>
                                     </div>
                                 </div>
                             </div>
@@ -758,6 +873,89 @@
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Simple FAQ Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('🟢 DOM loaded, setting up FAQ...');
+        
+        // Simple FAQ functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        console.log('🟢 Found FAQ questions:', faqQuestions.length);
+        
+        faqQuestions.forEach((question, index) => {
+            console.log('🟢 Setting up FAQ', index + 1);
+            question.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('🟢 FAQ clicked:', index + 1);
+                
+                const faqItem = this.closest('.faq-item');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked FAQ if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    console.log('🟢 FAQ opened:', index + 1);
+                } else {
+                    console.log('🟢 FAQ closed:', index + 1);
+                }
+            });
+        });
+        
+        // Simple search functionality
+        const searchInput = document.getElementById('faqSearchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                console.log('🔍 Searching:', searchTerm);
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                    
+                    if (question.includes(searchTerm) || answer.includes(searchTerm) || searchTerm === '') {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+        
+        // Simple category functionality
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const category = this.dataset.category;
+                console.log('📂 Category clicked:', category);
+                
+                // Update active category
+                document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter FAQs
+                if (category === 'all') {
+                    document.querySelectorAll('.faq-group').forEach(group => {
+                        group.style.display = 'block';
+                    });
+                } else {
+                    document.querySelectorAll('.faq-group').forEach(group => {
+                        if (group.dataset.category === category) {
+                            group.style.display = 'block';
+                        } else {
+                            group.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+        
+        console.log('✅ Simple FAQ setup completed');
+    });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

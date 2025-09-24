@@ -701,73 +701,113 @@ class PerformanceOptimizer {
     }
 }
 
-// FAQ Functionality
+// FAQ Functionality - Simplified version
 class FAQManager {
     constructor() {
-        this.initFAQs();
-        this.initSearch();
-        this.initCategories();
+        console.log('🔧 FAQManager initialized');
+        document.body.setAttribute('data-js-loaded', 'true');
+        this.setupFAQs();
+        this.setupSearch();
+        this.setupCategories();
     }
 
-    initFAQs() {
+    setupFAQs() {
+        console.log('🔧 Setting up FAQ functionality...');
         const faqItems = document.querySelectorAll('.faq-item');
+        console.log(`🔧 Found ${faqItems.length} FAQ items`);
         
-        faqItems.forEach(item => {
+        faqItems.forEach((item, index) => {
             const question = item.querySelector('.faq-question');
             if (question) {
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
+                console.log(`🔧 Adding event to FAQ ${index + 1}`);
+                
+                // Remove any existing event listeners and add new one
+                const newQuestion = question.cloneNode(true);
+                question.parentNode.replaceChild(newQuestion, question);
+                
+                newQuestion.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    console.log(`🔧 FAQ ${index + 1} clicked!`);
                     
-                    // Close all other FAQ items
+                    // Close all other FAQs
                     faqItems.forEach(otherItem => {
                         if (otherItem !== item) {
                             otherItem.classList.remove('active');
+                            console.log('🔧 Closed other FAQ');
                         }
                     });
                     
-                    // Toggle current item
-                    item.classList.toggle('active', !isActive);
+                    // Toggle current FAQ
+                    const wasActive = item.classList.contains('active');
+                    item.classList.toggle('active');
+                    console.log(`🔧 FAQ ${index + 1} is now: ${item.classList.contains('active') ? 'OPEN' : 'CLOSED'}`);
+                    
+                    // Force style update
+                    const answer = item.querySelector('.faq-answer');
+                    if (answer) {
+                        if (item.classList.contains('active')) {
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            console.log(`🔧 Set max-height to ${answer.scrollHeight}px`);
+                        } else {
+                            answer.style.maxHeight = '0px';
+                            console.log('🔧 Set max-height to 0px');
+                        }
+                    }
                 });
+            } else {
+                console.log(`❌ No question button found for FAQ ${index + 1}`);
             }
         });
+        
+        document.body.setAttribute('data-faq-events-added', faqItems.length);
+        console.log('✅ FAQ setup completed');
     }
 
-    initSearch() {
+    setupSearch() {
         const searchInput = document.getElementById('faqSearchInput');
         const clearBtn = document.getElementById('clearSearch');
         const suggestionTags = document.querySelectorAll('.suggestion-tag');
 
+        console.log(`🔧 Search elements: input=${!!searchInput}, clear=${!!clearBtn}, suggestions=${suggestionTags.length}`);
+
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
+                console.log('🔧 Search:', e.target.value);
                 this.filterFAQs(e.target.value);
-                this.toggleClearButton(e.target.value);
             });
         }
 
         if (clearBtn) {
             clearBtn.addEventListener('click', () => {
-                searchInput.value = '';
-                this.filterFAQs('');
-                this.toggleClearButton('');
+                console.log('🔧 Clear search clicked');
+                if (searchInput) {
+                    searchInput.value = '';
+                    this.filterFAQs('');
+                }
             });
         }
 
-        suggestionTags.forEach(tag => {
+        suggestionTags.forEach((tag, index) => {
             tag.addEventListener('click', () => {
                 const searchTerm = tag.dataset.search;
-                searchInput.value = searchTerm;
-                this.filterFAQs(searchTerm);
-                this.toggleClearButton(searchTerm);
+                console.log(`🔧 Suggestion ${index + 1} clicked:`, searchTerm);
+                if (searchInput) {
+                    searchInput.value = searchTerm;
+                    this.filterFAQs(searchTerm);
+                }
             });
         });
     }
 
-    initCategories() {
+    setupCategories() {
         const categoryCards = document.querySelectorAll('.category-card');
+        console.log(`🔧 Found ${categoryCards.length} category cards`);
         
-        categoryCards.forEach(card => {
+        categoryCards.forEach((card, index) => {
             card.addEventListener('click', () => {
                 const category = card.dataset.category;
+                console.log(`🔧 Category ${index + 1} clicked:`, category);
                 
                 // Update active category
                 categoryCards.forEach(otherCard => {
@@ -782,68 +822,78 @@ class FAQManager {
     }
 
     filterFAQs(searchTerm) {
+        console.log('🔍 Filtering FAQs with term:', searchTerm);
         const faqItems = document.querySelectorAll('.faq-item');
         const faqGroups = document.querySelectorAll('.faq-group');
         const noResults = document.getElementById('noResults');
         let hasVisibleItems = false;
 
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question span').textContent.toLowerCase();
-            const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
-            const matches = question.includes(searchTerm.toLowerCase()) || 
-                          answer.includes(searchTerm.toLowerCase());
+        faqItems.forEach((item, index) => {
+            const questionElement = item.querySelector('.faq-question span');
+            const answerElement = item.querySelector('.faq-answer');
             
-            item.classList.toggle('hidden', !matches);
-            if (matches) hasVisibleItems = true;
+            if (questionElement && answerElement) {
+                const question = questionElement.textContent.toLowerCase();
+                const answer = answerElement.textContent.toLowerCase();
+                const matches = !searchTerm || 
+                              question.includes(searchTerm.toLowerCase()) || 
+                              answer.includes(searchTerm.toLowerCase());
+                
+                item.style.display = matches ? 'block' : 'none';
+                if (matches) hasVisibleItems = true;
+                
+                console.log(`🔍 FAQ ${index + 1}: ${matches ? 'VISIBLE' : 'HIDDEN'}`);
+            }
         });
 
-        // Show/hide groups based on visible items
+        // Show/hide groups
         faqGroups.forEach(group => {
-            const visibleItems = group.querySelectorAll('.faq-item:not(.hidden)');
-            group.classList.toggle('hidden', visibleItems.length === 0);
+            const visibleItems = Array.from(group.querySelectorAll('.faq-item')).filter(item => 
+                item.style.display !== 'none'
+            );
+            group.style.display = visibleItems.length > 0 ? 'block' : 'none';
         });
 
         // Show/hide no results message
         if (noResults) {
             noResults.style.display = hasVisibleItems ? 'none' : 'block';
         }
+        
+        console.log('🔍 Search completed, visible items:', hasVisibleItems);
     }
 
     filterByCategory(category) {
+        console.log('📂 Filtering by category:', category);
         const faqGroups = document.querySelectorAll('.faq-group');
         const noResults = document.getElementById('noResults');
         let hasVisibleGroups = false;
 
-        faqGroups.forEach(group => {
-            const shouldShow = category === 'all' || group.dataset.category === category;
-            group.classList.toggle('hidden', !shouldShow);
+        faqGroups.forEach((group, index) => {
+            const groupCategory = group.dataset.category;
+            const shouldShow = category === 'all' || groupCategory === category;
+            group.style.display = shouldShow ? 'block' : 'none';
             if (shouldShow) hasVisibleGroups = true;
+            console.log(`📂 Group ${index + 1} (${groupCategory}): ${shouldShow ? 'VISIBLE' : 'HIDDEN'}`);
         });
 
-        // Clear search when filtering by category
+        // Clear search
         const searchInput = document.getElementById('faqSearchInput');
         if (searchInput) {
             searchInput.value = '';
-            this.toggleClearButton('');
         }
 
         // Reset FAQ item visibility
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
-            item.classList.remove('hidden');
+            item.style.display = 'block';
         });
 
         // Show/hide no results
         if (noResults) {
             noResults.style.display = hasVisibleGroups ? 'none' : 'block';
         }
-    }
-
-    toggleClearButton(value) {
-        const clearBtn = document.getElementById('clearSearch');
-        if (clearBtn) {
-            clearBtn.classList.toggle('visible', value.length > 0);
-        }
+        
+        console.log('📂 Category filter completed, visible groups:', hasVisibleGroups);
     }
 }
 
@@ -1042,6 +1092,9 @@ class OfferCards {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded');
+    console.log('Current page:', window.location.pathname);
+    
     // Initialize all components
     new Navigation();
     new HeroAnimations();
@@ -1054,8 +1107,27 @@ document.addEventListener('DOMContentLoaded', () => {
     new PerformanceOptimizer();
     
     // Initialize new FAQ and form functionality
-    if (document.querySelector('.faq-item')) {
+    const isFAQPage = window.location.pathname.includes('faq.html') || document.querySelector('.faq-content');
+    console.log('Is FAQ page:', isFAQPage);
+    
+    if (document.querySelector('.faq-item') || isFAQPage) {
+        console.log('Initializing FAQManager because FAQ elements found or FAQ page detected');
         new FAQManager();
+    } else {
+        console.log('No FAQ elements found, skipping FAQManager');
+        
+        // Fallback: Try again after a short delay if we're on FAQ page
+        if (isFAQPage) {
+            console.log('FAQ page detected, trying again in 100ms...');
+            setTimeout(() => {
+                if (document.querySelector('.faq-item')) {
+                    console.log('FAQ elements found on retry, initializing FAQManager');
+                    new FAQManager();
+                } else {
+                    console.log('Still no FAQ elements found after retry');
+                }
+            }, 100);
+        }
     }
     if (document.getElementById('comparisonForm')) {
         new ComparisonForm();
@@ -1079,8 +1151,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Console message for developers
     console.log('🚀 MercatoTutelato.it loaded successfully!');
     
-    // Initialize Timeline Countdown
-    new TimelineCountdown();
+    // Test FAQ functionality immediately if on FAQ page
+    if (window.location.pathname.includes('faq.html') || document.querySelector('.faq-content')) {
+        console.log('Testing FAQ functionality directly...');
+        setTimeout(() => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            console.log('FAQ items found for direct test:', faqItems.length);
+            
+            if (faqItems.length > 0 && !document.body.hasAttribute('data-faq-events-added')) {
+                console.log('FAQ items found but no events added, forcing initialization...');
+                new FAQManager();
+            }
+        }, 500);
+    }
 });
 
 // Timeline Countdown Class
@@ -1145,6 +1228,58 @@ class TimelineCountdown {
 function filterFAQs(searchTerm = '') {
     const faqManager = new FAQManager();
     faqManager.filterFAQs(searchTerm);
+}
+
+// Test function for FAQ functionality - Enhanced version
+function testFAQFunctionality() {
+    console.log('🧪 === TESTING FAQ FUNCTIONALITY ===');
+    
+    const faqItems = document.querySelectorAll('.faq-item');
+    const categories = document.querySelectorAll('.category-card');
+    const searchInput = document.getElementById('faqSearchInput');
+    const suggestions = document.querySelectorAll('.suggestion-tag');
+    
+    console.log('🧪 FAQ items found:', faqItems.length);
+    console.log('🧪 Category cards found:', categories.length);
+    console.log('🧪 Search input found:', !!searchInput);
+    console.log('🧪 Suggestion tags found:', suggestions.length);
+    
+    let testResults = [];
+    
+    // Test 1: Check if FAQ items exist
+    testResults.push(`FAQ Items: ${faqItems.length}`);
+    
+    // Test 2: Check if first FAQ has proper structure
+    if (faqItems.length > 0) {
+        const firstFaq = faqItems[0];
+        const question = firstFaq.querySelector('.faq-question');
+        const answer = firstFaq.querySelector('.faq-answer');
+        
+        testResults.push(`First FAQ Question: ${!!question ? '✅' : '❌'}`);
+        testResults.push(`First FAQ Answer: ${!!answer ? '✅' : '❌'}`);
+        
+        // Test 3: Try to click first FAQ
+        if (question) {
+            console.log('🧪 Simulating click on first FAQ...');
+            question.click();
+            
+            setTimeout(() => {
+                const isActive = firstFaq.classList.contains('active');
+                testResults.push(`Click Response: ${isActive ? '✅ WORKS' : '❌ FAILED'}`);
+                
+                // Show alert with results
+                alert(`🧪 TEST RISULTATI:\n\n${testResults.join('\n')}\n\nConsole: Apri DevTools (F12) per log dettagliati`);
+            }, 200);
+        } else {
+            testResults.push(`Click Test: ❌ No question button`);
+            alert(`🧪 TEST RISULTATI:\n\n${testResults.join('\n')}`);
+        }
+    } else {
+        testResults.push(`Click Test: ❌ No FAQ items found`);
+        alert(`🧪 TEST RISULTATI:\n\n${testResults.join('\n')}`);
+    }
+    
+    console.log('🧪 === END FAQ TEST ===');
 }
 
 // Contact Form Modal Management
