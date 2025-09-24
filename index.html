@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercato Tutelato: informazioni ufficiali e confronto offerte luce e gas</title>
-    <meta name="description" content="Il mercato tutelato di energia elettrica e gas naturale: informazioni ufficiali, confronto offerte e guida al passaggio                         <p>Il <strong>Servizio a Tutele Graduali</strong> è un regime transitorio che accompagna i consumatori verso la piena liberalizzazione del mercato energetico.</p>ibero.">
+    <meta name="description" content="Informazioni sul passaggio dal mercato tutelato al mercato libero per luce e gas: guida, confronti e analisi gratuite per aiutarti a scegliere la tariffa più conveniente.">
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mercato Tutelato: informazioni e confronto offerte luce e gas">
+    <meta property="og:description" content="Informazioni sul passaggio dal mercato tutelato al mercato libero per luce e gas: guida, confronti e analisi gratuite.">
+    <meta property="og:image" content="/img/hero-coppia-tablet.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mercato Tutelato: informazioni e confronto offerte luce e gas">
+    <meta name="twitter:description" content="Informazioni sul passaggio dal mercato tutelato al mercato libero per luce e gas: guida, confronti e analisi gratuite.">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,11 +33,11 @@
                 <a href="faq.html" class="nav-link">FAQ</a>
                 <a href="#contatti" class="nav-link nav-cta">Contattaci</a>
             </div>
-            <div class="nav-toggle" id="navToggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <button class="nav-toggle" id="navToggle" aria-controls="navMenu" aria-expanded="false" aria-label="Apri menu">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
 
@@ -361,7 +369,7 @@
                     </div>
                 </div>
                 <div class="form-wrapper" data-aos="fade-left">
-                    <form class="contact-form" id="mainContactForm">
+                    <form class="contact-form" id="mainContactForm" role="form">
                         <div class="form-group">
                             <label for="mainNome">Nome e Cognome</label>
                             <input type="text" id="mainNome" name="nome" required>
@@ -380,7 +388,7 @@
                         <div class="form-group checkbox-group">
                             <input type="checkbox" id="mainPrivacy" name="privacy" required>
                             <label for="mainPrivacy">
-                                Accetto la <a href="privacy-policy.html" target="_blank">Privacy Policy</a> e il trattamento dei dati personali</a>
+                                Accetto la <a href="privacy-policy.html" target="_blank">Privacy Policy</a> e il trattamento dei dati personali
                             </label>
                         </div>
 

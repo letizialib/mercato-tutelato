@@ -48,10 +48,15 @@ class Navigation {
     }
     
     setupMobileMenu() {
+        if (!this.navToggle || !this.navMenu) return;
+
         this.navToggle.addEventListener('click', () => {
+            const expanded = this.navToggle.getAttribute('aria-expanded') === 'true';
             this.navToggle.classList.toggle('active');
             this.navMenu.classList.toggle('active');
             document.body.classList.toggle('nav-open');
+            // Update aria-expanded for accessibility
+            this.navToggle.setAttribute('aria-expanded', String(!expanded));
         });
         
         // Close menu when clicking on links
@@ -69,6 +74,7 @@ class Navigation {
                 this.navToggle.classList.remove('active');
                 this.navMenu.classList.remove('active');
                 document.body.classList.remove('nav-open');
+                this.navToggle.setAttribute('aria-expanded', 'false');
             }
         });
     }
@@ -284,8 +290,9 @@ class ServiceCards {
 // Form handling
 class FormHandler {
     constructor() {
-        this.contactForm = document.getElementById('contactForm');
-        this.formInputs = document.querySelectorAll('.contact-form input, .contact-form select');
+        // Try to find the main form (page) first, otherwise fallback to modal form
+        this.contactForm = document.getElementById('mainContactForm') || document.getElementById('contactForm');
+        this.formInputs = this.contactForm ? this.contactForm.querySelectorAll('input, select') : document.querySelectorAll('.contact-form input, .contact-form select');
         
         this.init();
     }
@@ -406,9 +413,9 @@ class FormHandler {
                     }
                 });
                 
-                // Check privacy checkbox
-                const privacyCheckbox = document.getElementById('privacy');
-                if (!privacyCheckbox.checked) {
+                // Check privacy checkbox within the current form (name=privacy)
+                const privacyCheckbox = this.contactForm.querySelector('input[type="checkbox"][name="privacy"]');
+                if (privacyCheckbox && !privacyCheckbox.checked) {
                     this.showError(privacyCheckbox, 'Devi accettare la privacy policy');
                     isFormValid = false;
                 }
@@ -427,6 +434,7 @@ class FormHandler {
     }
     
     async submitForm() {
+        if (!this.contactForm) return;
         const submitButton = this.contactForm.querySelector('button[type="submit"]');
         const originalText = submitButton.innerHTML;
         
@@ -1164,7 +1172,7 @@ function closeContactModal() {
 }
 
 function resetContactForm() {
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('mainContactForm') || document.getElementById('contactForm');
     if (form) {
         form.reset();
         // Clear all error messages
@@ -1226,7 +1234,7 @@ function showFieldError(fieldName, errorMessage) {
 }
 
 function validateContactForm() {
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('mainContactForm') || document.getElementById('contactForm');
     if (!form) return false;
 
     const formData = new FormData(form);
@@ -1242,7 +1250,7 @@ function validateContactForm() {
     });
 
     // Validate privacy checkbox
-    const privacyChecked = formData.get('privacy') === 'on';
+    const privacyChecked = formData.get('privacy') === 'on' || formData.get('privacy') === 'true' || formData.get('privacy') === '1';
     const privacyError = validateField('privacy', privacyChecked);
     showFieldError('privacy', privacyError);
     if (privacyError) isValid = false;
@@ -1255,7 +1263,7 @@ function handleFormSubmit(event) {
     
     if (validateContactForm()) {
         // Form is valid, proceed with the action
-        const form = document.getElementById('contactForm');
+        const form = document.getElementById('mainContactForm') || document.getElementById('contactForm');
         const formData = new FormData(form);
         
         // You can send the data to a server here
@@ -1286,12 +1294,12 @@ document.addEventListener('keydown', function(event) {
 
 // Add real-time validation to form fields
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('mainContactForm') || document.getElementById('contactForm');
     if (form) {
         // Add input event listeners for real-time validation
         const fields = ['nome', 'cognome', 'telefono', 'email'];
         fields.forEach(fieldName => {
-            const field = document.getElementById(fieldName);
+            const field = form.querySelector(`#${fieldName}`) || document.getElementById(fieldName);
             if (field) {
                 field.addEventListener('blur', function() {
                     const error = validateField(fieldName, this.value);
