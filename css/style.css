@@ -984,10 +984,128 @@ body {
     .hero-text {
         max-width: 100%;
     }
+
+    /* Centra il contenuto testuale della hero sui dispositivi stretti */
+    .hero-text {
+        text-align: center;
+        padding-right: 0;
+        margin: 0 auto;
+    }
+
+    .hero-description,
+    .hero-subdescription {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-cta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-content {
+        align-items: center;
+    }
     
     .hero-visual {
         height: 500px;
-        order: -1;
+        /* Metti l'immagine sotto al testo sotto i 1200px */
+        order: 2;
+    }
+    /* Rendi l'immagine rettangolare e nel flusso normale sotto i 1200px */
+    .hero .main-visual-container {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        margin: 0;
+    }
+    .hero .main-visual-container .hero-photo {
+        width: 100%;
+        height: auto;
+        /* forma rettangolare */
+        border-radius: 0;
+        /* niente ombre forti per un look più pulito */
+        filter: none;
+    }
+    .hero .main-visual-container::before {
+        /* rimuovi l’overlay curvo a sinistra per mantenere forma rettangolare */
+        display: none;
+    }
+    /* Riduci ulteriormente l'immagine sotto i 1200px: molto più sottile in altezza e larga */
+    .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* sezione visiva compatta */
+        height: auto;
+        padding-top: var(--space-3);
+        padding-bottom: var(--space-3);
+    }
+    /* riduci la parte inferiore della hero: far coincidere il bottom della hero
+       con il bottom dell'immagine full-bleed */
+    .hero {
+        min-height: 0 !important;
+        height: auto !important;
+        padding-bottom: 0 !important;
+        align-items: flex-start; /* evita l'allineamento verticale che aggiunge spazio */
+    }
+    /* rimuovi gli arrotondamenti inferiori della hero per schermi piccoli */
+    .hero {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    /* aumenta lo spazio superiore della hero per separare il titolo dalla navbar fissa */
+    .hero {
+        padding-top: calc(70px + var(--space-6)); /* 70px nav + spazio extra */
+    }
+    .hero-content {
+        padding-top: var(--space-8);
+    }
+    .hero-container {
+        padding-bottom: 0;
+    }
+    .hero-content {
+        padding-bottom: 0;
+    }
+    /* nascondi i glow che si estendono oltre il bordo inferiore */
+    .hero .golden-glow-left,
+    .hero .golden-glow-right {
+        display: none !important;
+    }
+    /* assicurati che overlay e background non estendano la hero */
+    .hero::before,
+    .hero::after,
+    .hero-background,
+    .hero-overlay,
+    .floating-elements {
+        bottom: 0 !important;
+        max-height: none !important;
+    }
+    .hero .main-visual-container {
+        /* full-bleed: i bordi laterali coincidono con i bordi dello schermo */
+        width: 100vw;
+        max-width: none;
+        /* centra il full-bleed rispetto al contenitore centrato */
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        padding: 0;
+        /* altezza mantenuta per mostrare metà dell'iPad */
+        height: 420px;
+        overflow: hidden;
+    }
+    .hero .main-visual-container .hero-photo {
+        max-width: 100%;
+        /* immagine più alta per mostrare il soggetto rilevante */
+        height: 420px;
+        max-height: 420px;
+        object-fit: cover; /* mantiene il ritaglio estetico */
+        /* sposta il focus ulteriormente verso il basso per mostrare più del tablet */
+        object-position: center 85%;
+        display: block;
+        transition: height 200ms ease, max-height 200ms ease, transform 200ms ease;
+        transform: translateY(24px); /* abbassa visivamente l'immagine */
     }
     
     .floating-card {
