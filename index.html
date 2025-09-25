@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -98,303 +99,211 @@
                 </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- Impact Numbers Section -->
+    <section class="impact-section">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-number" data-count="28">0</div>
-                    <div class="stat-label">Milioni di famiglie</div>
+            <div class="impact-wrapper">
+                <div class="impact-header" data-aos="fade-up">
+                    <h2>I numeri della transizione energetica</h2>
+                    <p>Dal 2024 milioni di famiglie sono entrate nel <strong>Servizio a Tutele Graduali</strong>, un regime transitorio valido fino al 2027.</p>
                 </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-icon">
-                        <i class="fas fa-calendar-alt"></i>
+                <div class="impact-grid">
+                    <div class="impact-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="impact-number">28</div>
+                        <div class="impact-label">Milioni di famiglie</div>
+                        <div class="impact-description">coinvolte nella transizione</div>
                     </div>
-                    <div class="stat-number" data-count="2024">0</div>
-                    <div class="stat-label">Anno di transizione</div>
+                    <div class="impact-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="impact-number">2024</div>
+                        <div class="impact-label">Anno di transizione</div>
+                        <div class="impact-description">fine del mercato tutelato</div>
+                    </div>
+                    <div class="impact-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="impact-number">2027</div>
+                        <div class="impact-label">Fine tutela graduale</div>
+                        <div class="impact-description">passaggio definitivo al libero mercato</div>
+                    </div>
+                    <div class="impact-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="impact-number">70+</div>
+                        <div class="impact-label">Fornitori sul mercato libero</div>
+                        <div class="impact-description">tra cui scegliere oggi</div>
+                    </div>
                 </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-icon">
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="services-modern" id="servizi">
+        <div class="container">
+            <div class="services-intro" data-aos="fade-up">
+                <h2>I nostri servizi</h2>
+                <p>Ti accompagniamo nella transizione dal mercato tutelato al mercato libero con consulenza personalizzata e comparazione delle migliori offerte.</p>
+            </div>
+            
+            <div class="services-showcase">
+                <div class="service-main" data-aos="fade-right" data-aos-delay="200">
+                    <div class="service-visual">
+                        <div class="service-icon-large">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <div class="service-badge">Gratuito</div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Analisi Bolletta Gratuita</h3>
+                        <p>Analizziamo la tua bolletta attuale e identifichiamo le opportunità di risparmio nel passaggio al mercato libero.</p>
+                        <a href="#form-analisi" class="service-cta">Richiedi analisi <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="services-secondary" data-aos="fade-left" data-aos-delay="300">
+                    <div class="service-item">
+                        <div class="service-icon-small">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Confronto Offerte</h4>
+                            <p>Confrontiamo le migliori offerte del mercato libero per trovare quella più adatta alle tue esigenze di consumo.</p>
+                            <a href="#" onclick="openContactModal('offerte'); return false;">Confronta ora</a>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-icon-small">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Consulenza Personalizzata</h4>
+                            <p>I nostri esperti ti guidano nella scelta del fornitore più conveniente e nelle pratiche di cambio.</p>
+                            <a href="#contatti">Prenota consulenza</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Revolution -->
+    <section class="timeline-revolution">
+        <div class="container">
+            <div class="timeline-intro" data-aos="fade-up">
+                <h2><span>La Fine del Mercato Tutelato</span><br>Date cruciali per luce e gas</h2>
+                <p>Il percorso normativo che ha portato alla completa liberalizzazione del mercato energetico italiano</p>
+            </div>
+
+            <div class="timeline-flow">
+                <div class="timeline-step completed" data-aos="fade-right" data-aos-delay="100">
+                    <div class="step-marker">
+                        <i class="fas fa-fire"></i>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-date">01 GEN 2024</div>
+                        <h3>Fine Mercato Tutelato Gas</h3>
+                        <p>Termine del servizio di maggior tutela per il gas naturale. I clienti senza scelta sono passati al <strong>Servizio a Tutele Graduali (STG)</strong>.</p>
+                        <div class="step-status completed">Completato</div>
+                    </div>
+                </div>
+
+                <div class="timeline-connector"></div>
+
+                <div class="timeline-step completed" data-aos="fade-left" data-aos-delay="200">
+                    <div class="step-marker">
+                        <i class="fas fa-bolt"></i>
+                        <div class="step-pulse"></div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-date">01 LUG 2024</div>
+                        <h3>Fine Mercato Tutelato Elettricità</h3>
+                        <p>Termine del servizio di maggior tutela per l'energia elettrica. Anche per la luce, passaggio automatico al <strong>STG</strong>.</p>
+                        <div class="step-status completed">Completato</div>
+                    </div>
+                </div>
+
+                <div class="timeline-connector active"></div>
+
+                <div class="timeline-step critical" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="step-marker critical">
                         <i class="fas fa-hourglass-end"></i>
+                        <div class="step-pulse critical"></div>
                     </div>
-                    <div class="stat-number" data-count="2027">0</div>
-                    <div class="stat-label">Fine tutela graduale</div>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <div class="stat-number" data-count="70"><span class="count">0</span><span class="plus">+</span></div>
-                    <div class="stat-label">Fornitori sul mercato libero</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section" id="servizi">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">I nostri servizi</h2>
-                <p class="section-subtitle">
-                    Ti accompagniamo nella transizione dal mercato tutelato al mercato libero con 
-                    consulenza personalizzata e comparazione delle migliori offerte.
-                </p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon">
-                        <i class="fas fa-search-dollar"></i>
-                    </div>
-                    <h3 class="service-title">Analisi Bolletta Gratuita</h3>
-                    <p class="service-description">
-                        Analizziamo la tua bolletta attuale e identifichiamo le opportunità di risparmio 
-                        nel passaggio al mercato libero.
-                    </p>
-                    <a href="#form-analisi" class="service-link">
-                        Richiedi analisi <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3 class="service-title">Confronto Offerte</h3>
-                    <p class="service-description">
-                        Confrontiamo le migliori offerte del mercato libero per trovare quella più 
-                        adatta alle tue esigenze di consumo.
-                    </p>
-                    <a href="#" class="service-link" onclick="openContactModal('offerte'); return false;">
-                        Confronta ora <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="service-title">Consulenza Personalizzata</h3>
-                    <p class="service-description">
-                        I nostri esperti ti guidano nella scelta del fornitore più conveniente e 
-                        nelle pratiche di cambio.
-                    </p>
-                    <a href="#contatti" class="service-link">
-                        Prenota consulenza <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section class="timeline-section">
-        <div class="timeline-background">
-            <!-- Floating elements simili alla hero -->
-            <div class="floating-elements">
-                <div class="floating-icon icon-1"><i class="fas fa-calendar-alt"></i></div>
-                <div class="floating-icon icon-2"><i class="fas fa-fire"></i></div>
-                <div class="floating-icon icon-3"><i class="fas fa-bolt"></i></div>
-                <div class="floating-icon icon-4"><i class="fas fa-hourglass-end"></i></div>
-                <div class="floating-icon icon-5"><i class="fas fa-chart-line"></i></div>
-            </div>
-        </div>
-        
-        <!-- Sfumature dorate negli angoli come nella hero -->
-        <div class="golden-glow-left"></div>
-        <div class="golden-glow-right"></div>
-        
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <div class="section-badge">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Timeline Ufficiale</span>
-                </div>
-                <h2 class="section-title">
-                    <span class="title-highlight">La Fine del Mercato Tutelato</span>
-                    <span class="title-main">Date cruciali per luce e gas</span>
-                </h2>
-                <p class="section-subtitle">
-                    Il percorso normativo che ha portato alla completa liberalizzazione del mercato energetico italiano
-                </p>
-            </div>
-
-            <div class="timeline-container">
-                <div class="timeline-progress">
-                    <div class="progress-line"></div>
-                    <div class="progress-fill" data-progress="66"></div>
-                </div>
-
-                <div class="timeline-item completed" data-aos="slide-right" data-aos-delay="100">
-                    <div class="timeline-point">
-                        <div class="timeline-icon completed">
-                            <div class="icon-bg"></div>
-                            <i class="fas fa-fire"></i>
-                            <div class="icon-ring"></div>
-                        </div>
-                        <div class="timeline-connector"></div>
-                    </div>
-                    <div class="timeline-content-wrapper">
-                        <div class="timeline-content completed">
-                            <div class="content-header">
-                                <div class="timeline-date">
-                                    <span class="date-day">01</span>
-                                    <span class="date-month">GEN</span>
-                                    <span class="date-year">2024</span>
-                                </div>
-                                <div class="timeline-status completed">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Completato</span>
-                                </div>
-                            </div>
-                            <div class="content-body">
-                                <h3>Fine Mercato Tutelato Gas</h3>
-                                <p>Termine del servizio di maggior tutela per il gas naturale. I clienti senza scelta sono passati al <strong>Servizio a Tutele Graduali (STG)</strong>.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item completed" data-aos="slide-left" data-aos-delay="200">
-                    <div class="timeline-point">
-                        <div class="timeline-icon completed">
-                            <div class="icon-bg"></div>
-                            <i class="fas fa-bolt"></i>
-                            <div class="icon-ring"></div>
-                        </div>
-                        <div class="timeline-connector"></div>
-                    </div>
-                    <div class="timeline-content-wrapper">
-                        <div class="timeline-content completed">
-                            <div class="content-header">
-                                <div class="timeline-date">
-                                    <span class="date-day">01</span>
-                                    <span class="date-month">LUG</span>
-                                    <span class="date-year">2024</span>
-                                </div>
-                                <div class="timeline-status completed">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Completato</span>
-                                </div>
-                            </div>
-                            <div class="content-body">
-                                <h3>Fine Mercato Tutelato Elettricità</h3>
-                                <p>Termine del servizio di maggior tutela per l'energia elettrica. Anche per la luce, passaggio automatico al <strong>STG</strong>.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item critical upcoming" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="timeline-point">
-                        <div class="timeline-icon critical">
-                            <div class="icon-bg"></div>
-                            <i class="fas fa-hourglass-end"></i>
-                            <div class="icon-ring"></div>
-                            <div class="icon-pulse"></div>
-                        </div>
-                    </div>
-                    <div class="timeline-content-wrapper">
-                        <div class="timeline-content critical">
-                            <div class="content-header">
-                                <div class="timeline-date critical">
-                                    <span class="date-day">31</span>
-                                    <span class="date-month">MAR</span>
-                                    <span class="date-year">2027</span>
-                                </div>
-                                <div class="timeline-status critical">
-                                    <i class="fas fa-calendar-times"></i>
-                                    <span>Data Conclusiva</span>
-                                </div>
-                            </div>
-                            <div class="content-body">
-                                <h3>Fine del Servizio a Tutele Graduali</h3>
-                                <p>Termine definitivo del STG. Da questa data, condizioni di <strong>mercato libero</strong> senza più regole ARERA.</p>
-                            </div>
-                        </div>
+                    <div class="step-content">
+                        <div class="step-date critical">31 MAR 2027</div>
+                        <h3>Fine del Servizio a Tutele Graduali</h3>
+                        <p>Termine definitivo del STG. Da questa data, condizioni di <strong>mercato libero</strong> senza più regole ARERA.</p>
+                        <div class="step-status critical">Data Conclusiva</div>
                     </div>
                 </div>
             </div>
 
-            <div class="timeline-info-simple" data-aos="fade-up" data-aos-delay="400">
-                <div class="info-content">
-                    <div class="info-icon">
-                        <i class="fas fa-info-circle"></i>
-                    </div>
-                    <div class="info-text">
-                        <h4>� Per saperne di più</h4>
-                        <p>La liberalizzazione del mercato energetico è un processo graduale voluto dall'Unione Europea per <strong>aumentare la concorrenza e l'efficienza</strong> del settore. Il Servizio a Tutele Graduali rappresenta una fase intermedia per accompagnare i consumatori verso una scelta consapevole nel mercato libero.</p>
-                        <div class="info-links">
-                            <a href="mercato-tutelato.html" class="info-link">
-                                <i class="fas fa-book-open"></i>
-                                <span>Approfondisci il mercato tutelato</span>
-                            </a>
-                            <a href="normativa.html" class="info-link">
-                                <i class="fas fa-gavel"></i>
-                                <span>Consulta la normativa</span>
-                            </a>
-                        </div>
+            <div class="timeline-insight" data-aos="fade-up" data-aos-delay="400">
+                <div class="insight-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="insight-content">
+                    <h4>💡 Per saperne di più</h4>
+                    <p>La liberalizzazione del mercato energetico è un processo graduale voluto dall'Unione Europea per <strong>aumentare la concorrenza e l'efficienza</strong> del settore. Il Servizio a Tutele Graduali rappresenta una fase intermedia per accompagnare i consumatori verso una scelta consapevole nel mercato libero.</p>
+                    <div class="insight-links">
+                        <a href="mercato-tutelato.html"><i class="fas fa-book-open"></i>Approfondisci il mercato tutelato</a>
+                        <a href="normativa.html"><i class="fas fa-gavel"></i>Consulta la normativa</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Form Section -->
-    <section class="form-section" id="form-analisi">
+    <!-- Contact Hero Section -->
+    <section class="contact-hero" id="form-analisi">
         <div class="container">
-            <div class="form-container">
-                <div class="form-content" data-aos="fade-right">
-                    <h2 class="form-title">Proteggi le tue bollette: richiedi un'analisi gratuita e indipendente</h2>
-                    <p class="form-description">
-                        Dal 2027 terminerà il Servizio a Tutele Graduali e resterai nel mercato libero con le condizioni del tuo attuale fornitore. Significa rischiare tariffe meno convenienti e meno trasparenti. Con la nostra analisi gratuita ed indipendente puoi scoprire subito le offerte più convenienti per te.
-                    </p>
-                    <div class="form-benefits">
-                        <div class="benefit-item">
+            <div class="contact-content">
+                <div class="contact-text" data-aos="fade-right">
+                    <h2>Proteggi le tue bollette: richiedi un'analisi gratuita e indipendente</h2>
+                    <p>Dal 2027 terminerà il Servizio a Tutele Graduali e resterai nel mercato libero con le condizioni del tuo attuale fornitore. Significa rischiare tariffe meno convenienti e meno trasparenti. Con la nostra analisi gratuita ed indipendente puoi scoprire subito le offerte più convenienti per te.</p>
+                    
+                    <div class="contact-benefits">
+                        <div class="benefit">
                             <i class="fas fa-check-circle"></i>
                             <span>Analisi gratuita e senza impegno, fatta nel tuo interesse</span>
                         </div>
-                        <div class="benefit-item">
+                        <div class="benefit">
                             <i class="fas fa-check-circle"></i>
                             <span>Confronto chiaro e imparziale delle migliori tariffe sul mercato</span>
                         </div>
-                        <div class="benefit-item">
+                        <div class="benefit">
                             <i class="fas fa-check-circle"></i>
                             <span>Un consiglio pratico: ti indichiamo la compagnia che conviene davvero, oggi</span>
                         </div>
                     </div>
                 </div>
-                <div class="form-wrapper" data-aos="fade-left">
-                    <form class="contact-form" id="mainContactForm" role="form">
-                        <div class="form-group">
+
+                <div class="contact-form-card" data-aos="fade-left" data-aos-delay="200">
+                    <form class="modern-form" id="mainContactForm" role="form">
+                        <div class="form-field">
                             <label for="mainNome">Nome e Cognome</label>
                             <input type="text" id="mainNome" name="nome" required>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-field">
                             <label for="mainTelefono">Telefono</label>
                             <input type="tel" id="mainTelefono" name="telefono" required>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-field">
                             <label for="mainEmail">Email</label>
                             <input type="email" id="mainEmail" name="email" required>
                         </div>
 
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="mainPrivacy" name="privacy" required>
-                            <label for="mainPrivacy">
+                        <div class="form-field checkbox-field">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="mainPrivacy" name="privacy" required>
+                                <span class="checkmark"></span>
                                 Accetto la <a href="privacy-policy.html" target="_blank">Privacy Policy</a> e il trattamento dei dati personali
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-full">
+                        <button type="submit" class="submit-btn">
+                            <span>Richiedi Analisi Gratuita</span>
                             <i class="fas fa-paper-plane"></i>
-                            Richiedi Analisi Gratuita
                         </button>
                     </form>
                 </div>
