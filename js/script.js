@@ -1497,10 +1497,20 @@ function hideCookieBanner() {
 }
 
 function checkCookieConsent() {
+    // First check if we should force show in development
+    if (forceShowCookieBannerInDev()) {
+        return; // Banner already shown by forceShowCookieBannerInDev()
+    }
+    
+    // Normal production behavior
     const consent = localStorage.getItem('cookieConsent');
+    console.log('Cookie consent status:', consent); // Debug log
     if (!consent) {
-        // Show banner after a short delay
-        setTimeout(showCookieBanner, 1000);
+        console.log('No consent found, showing banner...'); // Debug log
+        // Show banner after a short delay (ridotto da 1000ms a 500ms)
+        setTimeout(showCookieBanner, 500);
+    } else {
+        console.log('Consent already given, banner will not show'); // Debug log
     }
 }
 
@@ -1513,11 +1523,55 @@ function acceptAllCookies() {
     };
     
     localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    
+    // In development, also save to sessionStorage to remember choice during session
+    const isDevelopment = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' || 
+                         window.location.port !== '';
+    
+    if (isDevelopment) {
+        sessionStorage.setItem('cookieConsentSession', JSON.stringify(consent));
+        console.log('🍪 Development: Consent saved for this session');
+    }
+    
     hideCookieBanner();
     
     // Load analytics and marketing scripts here if needed
     loadAnalyticsScripts();
     loadMarketingScripts();
+}
+
+// Reset cookie consent (for testing purposes)
+function resetCookieConsent() {
+    localStorage.removeItem('cookieConsent');
+    sessionStorage.removeItem('cookieConsentSession');
+    console.log('Cookie consent reset (localStorage + sessionStorage cleared)');
+}
+
+// Force cookie banner to show in development environment
+function forceShowCookieBannerInDev() {
+    // Check if we're running on localhost or development server
+    const isDevelopment = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' || 
+                         window.location.port !== '';
+    
+    if (isDevelopment) {
+        // Check if user has accepted cookies in this session
+        const sessionConsent = sessionStorage.getItem('cookieConsentSession');
+        
+        if (!sessionConsent) {
+            console.log('🍪 Development environment - no session consent found, showing banner');
+            // Clear localStorage only if no session consent
+            localStorage.removeItem('cookieConsent');
+            // Show banner immediately in dev
+            setTimeout(showCookieBanner, 200);
+            return true;
+        } else {
+            console.log('🍪 Development environment - session consent found, respecting user choice');
+            return false;
+        }
+    }
+    return false;
 }
 
 function openCookieSettings() {
@@ -1555,6 +1609,16 @@ function saveCookiePreferences() {
     };
     
     localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    
+    // In development, also save to sessionStorage to remember choice during session
+    const isDevelopment = window.location.hostname === 'localhost' || 
+                         window.location.hostname === '127.0.0.1' || 
+                         window.location.port !== '';
+    
+    if (isDevelopment) {
+        sessionStorage.setItem('cookieConsentSession', JSON.stringify(consent));
+        console.log('🍪 Development: Custom preferences saved for this session');
+    }
     
     closeCookieSettings();
     hideCookieBanner();
