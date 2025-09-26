@@ -8884,3 +8884,432 @@ input:checked + .cookie-slider:before {
         flex-direction: column;
     }
 }
+
+/* ===========================================
+   COMPANIES PAGE STYLES
+   =========================================== */
+
+.companies-section {
+    padding: var(--space-10) 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.company-card {
+    background: white;
+    border-radius: 20px;
+    padding: var(--space-8);
+    margin-bottom: var(--space-6);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.company-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.company-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.company-card:hover::before {
+    transform: scaleX(1);
+}
+
+.company-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-6);
+    gap: var(--space-4);
+}
+
+.company-rank {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.company-info {
+    flex: 1;
+}
+
+.company-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: var(--space-2);
+    line-height: 1.2;
+}
+
+.company-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.badge {
+    padding: var(--space-1) var(--space-3);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-leader {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.badge-public {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+}
+
+.badge-innovation {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+}
+
+.badge-energy {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+.badge-multiutility {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    color: white;
+}
+
+.badge-sustainable {
+    background: linear-gradient(135deg, #84cc16, #65a30d);
+    color: white;
+}
+
+.badge-historic {
+    background: linear-gradient(135deg, #92400e, #78350f);
+    color: white;
+}
+
+.badge-renewables {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+}
+
+.badge-circular {
+    background: linear-gradient(135deg, #e879f9, #d946ef);
+    color: white;
+}
+
+.badge-carbon-neutral {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    color: white;
+}
+
+.badge-municipal {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+}
+
+.badge-emerging {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.badge-digital {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+}
+
+.badge-international {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    color: white;
+}
+
+.badge-green {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+}
+
+.badge-south {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: white;
+}
+
+.company-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+}
+
+.company-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.company-description p {
+    margin-bottom: var(--space-4);
+}
+
+.company-description p:last-child {
+    margin-bottom: 0;
+}
+
+.company-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-item {
+    text-align: center;
+    padding: var(--space-3);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--space-1);
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.company-contact {
+    grid-column: 1 / -1;
+    margin-top: var(--space-4);
+    padding: var(--space-4);
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: 12px;
+    border: 1px solid #f59e0b;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.company-contact i {
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+.company-contact span {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.company-contact strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: var(--space-12) 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    color: white;
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: var(--space-8);
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    padding: var(--space-4) var(--space-6);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--secondary-color);
+    color: var(--dark-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background: #f59e0b;
+    color: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .company-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+    
+    .company-stats {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    .stat-item {
+        flex: 1;
+        margin: 0 var(--space-1);
+    }
+}
+
+@media (max-width: 768px) {
+    .companies-section {
+        padding: var(--space-8) 0;
+    }
+    
+    .company-card {
+        padding: var(--space-6);
+        margin-bottom: var(--space-4);
+        border-radius: 15px;
+    }
+    
+    .company-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-3);
+    }
+    
+    .company-rank {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .company-name {
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .company-badges {
+        justify-content: center;
+    }
+    
+    .company-stats {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .stat-item {
+        margin: 0;
+    }
+    
+    .stat-number {
+        font-size: 18px;
+    }
+    
+    .company-contact {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-2);
+    }
+    
+    .cta-content h2 {
+        font-size: 28px;
+    }
+    
+    .cta-content p {
+        font-size: 16px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-card {
+        padding: var(--space-4);
+    }
+    
+    .company-name {
+        font-size: 18px;
+    }
+    
+    .badge {
+        font-size: 10px;
+        padding: var(--space-1) var(--space-2);
+    }
+    
+    .stat-number {
+        font-size: 16px;
+    }
+    
+    .stat-label {
+        font-size: 11px;
+    }
+}
