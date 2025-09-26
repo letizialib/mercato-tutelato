@@ -139,41 +139,91 @@
                 <span class="close" onclick="closeContactModal()">&times;</span>
             </div>
             <div class="modal-body">
-                <p>Per continuare, inserisci i tuoi dati di contatto:</p>
-                <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                    <div class="form-group">
-                        <label for="nome">Nome *</label>
-                        <input type="text" id="nome" name="nome" required>
-                        <span class="error-message" id="nomeError"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="cognome">Cognome *</label>
-                        <input type="text" id="cognome" name="cognome" required>
-                        <span class="error-message" id="cognomeError"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">Numero di telefono *</label>
-                        <input type="tel" id="telefono" name="telefono" required>
-                        <span class="error-message" id="telefonoError"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                        <span class="error-message" id="emailError"></span>
-                    </div>
-                    <div class="form-group checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="privacy" name="privacy" required>
-                            <span class="checkmark"></span>
-                            Accetto l'<a href="privacy-policy.html" target="_blank">informativa sulla privacy</a> e autorizzo il trattamento dei miei dati personali *
-                        </label>
-                        <span class="error-message" id="privacyError"></span>
-                    </div>
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-secondary" onclick="closeContactModal()">Annulla</button>
-                        <button type="submit" class="btn btn-primary">Continua</button>
-                    </div>
-                </form>
+                <div id="zf_div_8mZJf0m746aDrQc_lAt2QRL8i-AorA6-W7D1j3oLAGY">
+                </div>
+                <script type="text/javascript">
+                (function() {
+                try{
+                var f = document.createElement("iframe");
+
+                var ifrmSrc = 'https://forms.zohopublic.eu/easyclickstoritvedoo1/form/Contatti/formperma/8mZJf0m746aDrQc_lAt2QRL8i-AorA6-W7D1j3oLAGY?zf_rszfm=1';
+
+
+                        try{
+                if ( typeof ZFAdvLead != "undefined" && typeof zfutm_zfAdvLead != "undefined" ) {
+                for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
+                    var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
+                    utmPm = ( ZFAdvLead.isSameDomian && ( ZFAdvLead.utmcustPNameArr.indexOf(utmPm) == -1 ) ) ? "zf_" + utmPm : utmPm;
+                    var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
+                    if ( typeof utmVal !== "undefined" ) {
+                      if ( utmVal != "" ) {
+                        if(ifrmSrc.indexOf('?') > 0){
+                             ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;
+                        }else{
+                            ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;
+                        }
+                      }
+                    }
+                }
+                }
+                if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
+                for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
+                        var utmPm = ZFLead.utmPNameArr[ prmIdx ];
+                        var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
+                        if ( typeof utmVal !== "undefined" ) {
+                          if ( utmVal != "" ){
+                            if(ifrmSrc.indexOf('?') > 0){
+                              ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;//No I18N
+                            }else{
+                              ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;//No I18N
+                            }
+                          }
+                        }
+                      }
+                }
+                }catch(e){}
+
+                f.src = ifrmSrc;
+                f.style.border="none";
+                f.style.height="1341px";
+                f.style.width="90%";
+                f.style.transition="all 0.5s ease";
+                f.setAttribute("aria-label", 'Contatti');
+
+                var d = document.getElementById("zf_div_8mZJf0m746aDrQc_lAt2QRL8i-AorA6-W7D1j3oLAGY");
+                d.appendChild(f);
+                window.addEventListener('message', function (){
+                var evntData = event.data;
+                if( evntData && evntData.constructor == String ){
+                var zf_ifrm_data = evntData.split("|");
+                if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
+                var zf_perma = zf_ifrm_data[0];
+                var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
+                var iframe = document.getElementById("zf_div_8mZJf0m746aDrQc_lAt2QRL8i-AorA6-W7D1j3oLAGY").getElementsByTagName("iframe")[0];
+                if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
+                var prevIframeHeight = iframe.style.height;
+                var zf_tout = false;
+                if( zf_ifrm_data.length == 3 ) {
+                    iframe.scrollIntoView();
+                    zf_tout = true;
+                }
+
+                if ( prevIframeHeight != zf_ifrm_ht_nw ) {
+                if( zf_tout ) {
+                    setTimeout(function(){
+                        iframe.style.height = zf_ifrm_ht_nw;
+                    },500);
+                } else {
+                    iframe.style.height = zf_ifrm_ht_nw;
+                }
+                }
+                }
+                }
+                }
+                }, false);
+                    }catch(e){}
+                })();
+                </script>
             </div>
         </div>
     </div>
