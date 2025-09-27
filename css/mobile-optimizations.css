@@ -78,7 +78,7 @@
     .main-visual-container {
         position: static !important;
         width: 100% !important;
-        height: 240px !important;
+        height: 280px !important;
         margin: 0 !important;
         padding: 0 !important;
         border-radius: 0.5rem !important;
@@ -87,12 +87,13 @@
     
     .hero-photo {
         width: 100% !important;
-        height: 240px !important;
-        object-fit: cover !important;
-        object-position: center 60% !important;
+        height: 280px !important;
+        object-fit: contain !important;
+        object-position: center center !important;
         border-radius: 0.5rem !important;
         transform: none !important;
         filter: none !important;
+        background-color: #f3f4f6;
     }
     
     /* Button mobile optimization */
@@ -184,11 +185,14 @@
     }
     
     .main-visual-container {
-        height: 200px !important;
+        height: 250px !important;
     }
     
     .hero-photo {
-        height: 200px !important;
+        height: 250px !important;
+        object-fit: contain !important;
+        object-position: center center !important;
+        background-color: #f3f4f6 !important;
     }
     
     .btn-pulse {
@@ -216,11 +220,14 @@
     }
     
     .main-visual-container {
-        height: 180px !important;
+        height: 220px !important;
     }
     
     .hero-photo {
-        height: 180px !important;
+        height: 220px !important;
+        object-fit: contain !important;
+        object-position: center center !important;
+        background-color: #f3f4f6 !important;
     }
     
     .btn-pulse {

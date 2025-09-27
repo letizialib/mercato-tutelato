@@ -1367,7 +1367,7 @@ body {
     .hero .main-visual-container .hero-photo {
         height: 240px;
         border-radius: var(--radius-lg);
-        object-position: center 60%;
+        object-position: center center;
     }
     
     .btn-pulse {
@@ -1510,7 +1510,7 @@ body {
     
     .hero .main-visual-container .hero-photo {
         height: 200px;
-        object-position: center 50%;
+        object-position: center center;
     }
     
     .btn-pulse {
