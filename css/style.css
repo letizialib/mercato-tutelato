@@ -8000,7 +8000,8 @@ body {
     width: 100%;
     height: 100%;
     /* Prefer custom hero image; fallback to bundled Pexels photo when missing */
-    background-image: url('../img/hero-coppia-tablet.jpg'), url('../pexels-marcus-aurelius-6787959.jpg');
+    /* WebP prima, fallback JPEG (se presente), quindi fallback generico */
+    background-image: url('../img/hero-coppia-tablet.webp'), url('../img/hero-coppia-tablet.jpg'), url('../pexels-marcus-aurelius-6787959.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;

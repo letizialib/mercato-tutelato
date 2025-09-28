@@ -9,7 +9,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Mercato Tutelato: informazioni e confronto offerte luce e gas">
     <meta property="og:description" content="Informazioni sul passaggio dal mercato tutelato al mercato libero per luce e gas: guida, confronti e analisi gratuite.">
-    <meta property="og:image" content="/img/hero-coppia-tablet.jpg">
+    <meta property="og:image" content="/img/hero-coppia-tablet.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mercato Tutelato: informazioni e confronto offerte luce e gas">
     <meta name="twitter:description" content="Informazioni sul passaggio dal mercato tutelato al mercato libero per luce e gas: guida, confronti e analisi gratuite.">
@@ -88,11 +88,20 @@
                     <div class="hero-visual">
                         <div class="main-visual-container">
                             <!-- Immagine hero sostitutiva delle cards -->
-                            <img 
-                                class="hero-photo" 
-                                src="img/hero-coppia-tablet.jpg" 
-                                onerror="this.onerror=null;this.src='pexels-marcus-aurelius-6787959.jpg';" 
-                                alt="Coppia che guarda un tablet sul divano" />
+                            <picture>
+                                <!-- WebP ottimizzato -->
+                                <source srcset="img/hero-coppia-tablet.webp" type="image/webp">
+                                <!-- Fallback JPEG opzionale se mantenuto -->
+                                <source srcset="img/hero-coppia-tablet.jpg" type="image/jpeg">
+                                <img 
+                                    class="hero-photo" 
+                                    src="img/hero-coppia-tablet.webp" 
+                                    loading="eager" 
+                                    decoding="async" 
+                                    width="640" height="430" 
+                                    onerror="this.onerror=null;this.src='pexels-marcus-aurelius-6787959.jpg';" 
+                                    alt="Coppia che guarda un tablet sul divano" />
+                            </picture>
                         </div>
                     </div>
                 </div>
