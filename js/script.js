@@ -55,6 +55,22 @@ class Navigation {
             this.navToggle.classList.toggle('active');
             this.navMenu.classList.toggle('active');
             document.body.classList.toggle('nav-open');
+            
+            // Migliore gestione per dispositivi mobili
+            if (this.navMenu.classList.contains('active')) {
+                // Previeni lo scroll del body quando il menu è aperto
+                document.body.style.overflow = 'hidden';
+                // Assicura che il menu sia scorrevole
+                this.navMenu.style.overflowY = 'auto';
+                // Scroll automatico verso l'alto quando si apre il menu
+                setTimeout(() => {
+                    this.navMenu.scrollTop = 0;
+                }, 50);
+            } else {
+                // Ripristina lo scroll del body
+                document.body.style.overflow = '';
+            }
+            
             // Update aria-expanded for accessibility
             this.navToggle.setAttribute('aria-expanded', String(!expanded));
         });
@@ -62,21 +78,31 @@ class Navigation {
         // Close menu when clicking on links
         this.navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                this.navToggle.classList.remove('active');
-                this.navMenu.classList.remove('active');
-                document.body.classList.remove('nav-open');
+                this.closeMenu();
             });
         });
         
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!this.navToggle.contains(e.target) && !this.navMenu.contains(e.target)) {
-                this.navToggle.classList.remove('active');
-                this.navMenu.classList.remove('active');
-                document.body.classList.remove('nav-open');
-                this.navToggle.setAttribute('aria-expanded', 'false');
+                this.closeMenu();
             }
         });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.navMenu.classList.contains('active')) {
+                this.closeMenu();
+            }
+        });
+    }
+    
+    closeMenu() {
+        this.navToggle.classList.remove('active');
+        this.navMenu.classList.remove('active');
+        document.body.classList.remove('nav-open');
+        document.body.style.overflow = '';
+        this.navToggle.setAttribute('aria-expanded', 'false');
     }
     
     setupSmoothScrolling() {

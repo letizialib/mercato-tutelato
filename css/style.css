@@ -330,9 +330,13 @@ body {
         justify-content: flex-start;
         align-items: center;
         gap: var(--space-6);
-        padding: var(--space-8) var(--space-4);
+        padding: var(--space-8) var(--space-4) calc(var(--space-8) + 60px) var(--space-4);
         transition: left 0.3s ease-in-out;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        /* Migliore compatibilità con Safari mobile */
+        min-height: calc(100vh - 60px);
+        box-sizing: border-box;
     }
     
     .nav-menu.active {
@@ -363,6 +367,14 @@ body {
     
     .nav-toggle.active .bar:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    /* Previeni lo scroll del body quando il menu mobile è aperto */
+    body.nav-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
     }
 }
 
