@@ -21,57 +21,80 @@
         display: flex !important;
         flex-direction: column !important;
         gap: 1.5rem !important;
-        padding: 1rem 0 !important;
+        padding: 1.25rem 0 !important;
         min-height: auto !important;
         grid-template-columns: none !important;
     }
     
     .hero-text {
         order: 1 !important;
-        text-align: left !important;
+        text-align: center !important;
         padding-right: 0 !important;
         max-width: 100% !important;
+        padding-bottom: 0.5rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     
     .hero-visual {
         order: 2 !important;
-        padding: 1rem 0 0 0 !important;
+        /* Riduci lo spazio sopra l'immagine per avvicinarla alla CTA */
+        padding: 0.5rem 0 0 0 !important;
         height: auto !important;
     }
     
-    /* Typography mobile */
+    .hero-cta {
+        margin-top: 1.5rem !important;
+        padding-top: 0.5rem !important;
+    }
+    
+    /* Typography mobile - Migliorata leggibilità e coerenza */
     .hero-title {
-        font-size: clamp(2rem, 7vw, 2.8rem) !important;
-        line-height: 1.2 !important;
-        margin-bottom: 1rem !important;
+        font-size: clamp(1.75rem, 6.5vw, 2.5rem) !important;
+        line-height: 1.25 !important;
+        margin-bottom: 1.25rem !important;
+        letter-spacing: -0.02em !important;
+        font-weight: 600 !important;
     }
     
     .title-highlight {
-        font-size: 1.05em !important;
-        margin-bottom: 0.5rem !important;
+        font-size: 1.1em !important;
+        margin-bottom: 0.75rem !important;
         display: block !important;
+        font-weight: 700 !important;
+        line-height: 1.15 !important;
+        text-align: center !important;
     }
     
     .title-main {
-        font-size: 0.95em !important;
-        line-height: 1.3 !important;
-        margin-top: 0.5rem !important;
+        font-size: 0.85em !important;
+        line-height: 1.35 !important;
+        margin-top: 0.75rem !important;
+        font-weight: 500 !important;
+        opacity: 0.95 !important;
+        text-align: center !important;
     }
     
     .hero-description {
-        font-size: 1.15rem !important;
-        line-height: 1.6 !important;
-        margin-bottom: 0.75rem !important;
-        max-width: 100% !important;
-        opacity: 0.95 !important;
+        font-size: 1.1rem !important;
+        line-height: 1.65 !important;
+        margin: 0.25rem auto 1rem auto !important;
+        max-width: 36rem !important;
+        opacity: 0.92 !important;
+        font-weight: 400 !important;
+        letter-spacing: 0.01em !important;
+        text-align: center !important;
     }
     
     .hero-subdescription {
-        font-size: 1.05rem !important;
-        line-height: 1.5 !important;
-        margin-bottom: 1.5rem !important;
-        max-width: 100% !important;
-        opacity: 0.85 !important;
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        margin: 0.25rem auto 1.75rem auto !important;
+        max-width: 36rem !important;
+        opacity: 0.88 !important;
+        font-weight: 300 !important;
+        letter-spacing: 0.005em !important;
+        text-align: center !important;
     }
     
     /* Image mobile optimization */
@@ -96,26 +119,40 @@
         background-color: #f3f4f6;
     }
     
-    /* Button mobile optimization */
+    /* Button mobile optimization - Migliorata visibilità e usabilità */
     .btn-pulse {
         width: 100% !important;
-        max-width: 100% !important;
-        padding: 1rem 1.25rem !important;
+        max-width: 380px !important;
+        padding: 1.1rem 1.5rem !important;
         font-size: 1rem !important;
         justify-content: center !important;
-        margin: 0.5rem 0 !important;
-        min-height: 48px !important;
+        margin: 1rem auto 0.5rem auto !important;
+        min-height: 52px !important;
         touch-action: manipulation !important;
+        border-radius: 0.75rem !important;
+        display: flex !important;
+        box-shadow: 
+            0 8px 20px rgba(251, 191, 36, 0.3),
+            0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .btn-content {
+        align-items: center !important;
+        text-align: center !important;
+        gap: 0.25rem !important;
     }
     
     .btn-main {
         font-size: 1.1rem !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
     }
     
     .btn-sub {
-        font-size: 0.85rem !important;
-        opacity: 0.9 !important;
+        font-size: 0.9rem !important;
+        opacity: 0.85 !important;
+        font-weight: 400 !important;
+        line-height: 1.1 !important;
     }
     
     /* Hide decorative elements on mobile */
@@ -152,60 +189,161 @@
         align-items: center !important;
         justify-content: center !important;
     }
+    
+    /* Miglioramenti generali per leggibilità mobile */
+    .hero-text * {
+        text-rendering: optimizeLegibility !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+    
+    /* Evita problemi di zoom automatico iOS */
+    .hero-text {
+        -webkit-text-size-adjust: 100% !important;
+        text-size-adjust: 100% !important;
+    }
 }
 
-/* Smaller mobile devices */
+/* Smaller mobile devices - Ulteriormente ottimizzato */
 @media (max-width: 480px) {
     .hero {
-        padding: calc(60px + 0.75rem) 0 1.5rem 0 !important;
+        padding: calc(60px + 1rem) 0 1.75rem 0 !important;
     }
     
     .hero-container {
-        padding: 0 0.75rem !important;
+        padding: 0 1rem !important;
     }
     
     .hero-content {
-        gap: 1rem !important;
-        padding: 0.75rem 0 !important;
+        gap: 1.25rem !important;
+        padding: 1rem 0 !important;
     }
     
     .hero-title {
-        font-size: clamp(1.6rem, 5.8vw, 2.4rem) !important;
-        margin-bottom: 0.75rem !important;
+        font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.2 !important;
+    }
+    .hero-text {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .title-highlight {
+        font-size: 1.15em !important;
+        margin-bottom: 0.5rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .title-main {
+        font-size: 0.8em !important;
+        line-height: 1.3 !important;
+        margin-top: 0.5rem !important;
+    }
+    .title-main {
+        text-align: center !important;
     }
     
     .hero-description {
         font-size: 1.05rem !important;
-        margin-bottom: 0.5rem !important;
+        margin-bottom: 0.875rem !important;
+        line-height: 1.6 !important;
+    }
+    .hero-description {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 34rem !important;
     }
     
     .hero-subdescription {
-        font-size: 1rem !important;
-        margin-bottom: 1rem !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 1.25rem !important;
+        line-height: 1.55 !important;
+        opacity: 0.85 !important;
+    }
+    .hero-subdescription {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 34rem !important;
     }
     
+    .hero-cta {
+        /* leggermente più vicina all'immagine */
+        margin-top: 1rem !important;
+        padding-top: 0.5rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
     .main-visual-container {
-        height: 250px !important;
+        height: 240px !important;
+        /* Avvicina l'immagine alla CTA */
+        margin-top: 0.25rem !important;
     }
     
     .hero-photo {
-        height: 250px !important;
+        height: 240px !important;
         object-fit: contain !important;
         object-position: center center !important;
         background-color: #f3f4f6 !important;
     }
     
     .btn-pulse {
-        padding: 0.75rem 1rem !important;
-        font-size: 0.9rem !important;
+        padding: 0.9rem 1.1rem !important;
+        font-size: 0.95rem !important;
+        max-width: 100% !important;
+        min-height: 48px !important;
     }
     
     .btn-main {
-        font-size: 1rem !important;
+        font-size: 1.05rem !important;
     }
     
     .btn-sub {
-        font-size: 0.8rem !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Tablet e dispositivi medi - ottimizzazioni intermedie */
+@media (max-width: 768px) and (min-width: 481px) {
+    .hero-title {
+        font-size: clamp(2rem, 5.8vw, 2.6rem) !important;
+        line-height: 1.22 !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .title-highlight {
+        font-size: 1.08em !important;
+        margin-bottom: 0.6rem !important;
+    }
+    
+    .hero-description {
+        font-size: 1.15rem !important;
+        line-height: 1.7 !important;
+        margin-bottom: 1.1rem !important;
+    }
+    
+    .hero-subdescription {
+        font-size: 1.05rem !important;
+        line-height: 1.65 !important;
+        margin-bottom: 1.8rem !important;
+    }
+    
+    .btn-pulse {
+        max-width: 350px !important;
+        padding: 1.15rem 1.4rem !important;
+        min-height: 54px !important;
+    }
+    
+    .btn-main {
+        font-size: 1.15rem !important;
+    }
+    
+    .btn-sub {
+        font-size: 0.95rem !important;
     }
 }
 
@@ -221,10 +359,22 @@
         margin-bottom: 0.5rem !important;
     }
 
+    .hero-text {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
     .hero-description {
         font-size: 1.02rem !important;
         line-height: 1.5 !important;
         margin-bottom: 0.5rem !important;
+    }
+    .hero-description {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 30rem !important;
     }
 
     .hero-subdescription {
@@ -232,9 +382,16 @@
         line-height: 1.4 !important;
         margin-bottom: 0.75rem !important;
     }
+    .hero-subdescription {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 30rem !important;
+    }
     
     .main-visual-container {
         height: 220px !important;
+        margin-top: 0.25rem !important;
     }
     
     .hero-photo {
@@ -245,7 +402,7 @@
     }
     
     .btn-pulse {
-        padding: 0.65rem 0.85rem !important;
+        padding: 0.6rem 0.8rem !important;
         font-size: 0.85rem !important;
     }
 }
