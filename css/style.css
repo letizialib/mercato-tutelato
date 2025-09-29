@@ -9636,3 +9636,128 @@ input:checked + .cookie-slider:before {
         max-width: 240px;
     }
 }
+
+/* ================================
+   LEGAL PAGE STYLES
+   ================================ */
+
+.legal-content {
+    padding: var(--space-20) 0;
+    background: var(--white);
+}
+
+.legal-section {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-8);
+    padding: var(--space-8);
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.legal-section:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.legal-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: var(--space-4);
+}
+
+.legal-title i {
+    color: var(--primary-color);
+    font-size: var(--font-size-lg);
+}
+
+.legal-text {
+    color: var(--neutral-color);
+    line-height: 1.7;
+}
+
+.legal-text p {
+    margin-bottom: var(--space-4);
+}
+
+.legal-text p:last-child {
+    margin-bottom: 0;
+}
+
+.legal-list {
+    list-style: none;
+    padding-left: 0;
+    margin: var(--space-4) 0;
+}
+
+.legal-list li {
+    position: relative;
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-3);
+    color: var(--neutral-color);
+    line-height: 1.6;
+}
+
+.legal-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+}
+
+.legal-text a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.legal-text a:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* Responsive adjustments for legal page */
+@media (max-width: 768px) {
+    .legal-content {
+        padding: var(--space-12) 0;
+    }
+    
+    .legal-section {
+        padding: var(--space-6);
+        margin-bottom: var(--space-6);
+    }
+    
+    .legal-title {
+        font-size: var(--font-size-lg);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+    
+    .legal-title i {
+        font-size: var(--font-size-base);
+    }
+    
+    .legal-list li {
+        padding-left: var(--space-5);
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-section {
+        padding: var(--space-4);
+        border-left-width: 3px;
+    }
+    
+    .legal-title {
+        font-size: var(--font-size-base);
+        font-weight: 600;
+    }
+}
