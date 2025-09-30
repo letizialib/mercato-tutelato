@@ -241,6 +241,7 @@ body {
     display: flex;
     gap: var(--space-8);
     align-items: center;
+    margin-left: var(--space-6);
 }
 
 .nav-link {
