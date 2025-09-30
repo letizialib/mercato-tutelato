@@ -1181,7 +1181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Console message for developers
-    console.log('🚀 MercatoTutelato.it loaded successfully!');
+    console.log('🚀 MercatoLibero.ue loaded successfully!');
     
     // Test FAQ functionality immediately if on FAQ page
     if (window.location.pathname.includes('faq.html') || document.querySelector('.faq-content')) {
