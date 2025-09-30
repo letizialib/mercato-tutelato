@@ -378,6 +378,22 @@ body {
     }
 }
 
+/* Desktop: aumenta lo spazio tra il logo e il menu (es. Home) */
+@media (min-width: 769px) {
+    /* Aumenta la distanza tra il logo (MercatoLibero) e i link della navbar
+       senza modificare il layout mobile. Usa variabili di spaziatura già
+       presenti per rimanere coerenti con il design. */
+    .nav-logo {
+        margin-right: var(--space-12); /* 3rem */
+    }
+
+    /* Opzionale: aumenta leggermente il gap tra i link per migliorare
+       la leggibilità su desktop. */
+    .nav-menu {
+        gap: calc(var(--space-8) + 0.5rem);
+    }
+}
+
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, 
@@ -1518,7 +1534,6 @@ body {
         width: 250px;
         height: 250px;
     }
-}
 
 @media (max-width: 480px) {
     .hero {
