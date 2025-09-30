@@ -180,75 +180,93 @@
                     </div>
                 </div>
                 
-                <div class="contact-form" data-aos="fade-left">
-                    <form id="contactForm" class="form">
-                        <div class="form-group">
-                            <label for="fullName">Nome e Cognome *</label>
-                            <input type="text" id="fullName" name="fullName" required placeholder="Il tuo nome completo">
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required placeholder="tua@email.it">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Telefono *</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="+39 123 456 7890">
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="currentSupplier">Fornitore attuale</label>
-                            <select id="currentSupplier" name="currentSupplier">
-                                <option value="">Seleziona il tuo fornitore</option>
-                                <option value="enel">Enel</option>
-                                <option value="eni">Eni</option>
-                                <option value="edison">Edison</option>
-                                <option value="a2a">A2A</option>
-                                <option value="hera">Hera</option>
-                                <option value="altro">Altro</option>
-                                <option value="non-so">Non lo so</option>
-                            </select>
-                        </div>
+                <div class="contact-form-card" data-aos="fade-left" data-aos-delay="200">
+                    <div id="zf_div_8mZJf0m746aDrQc_lAt2QRL8i-AorA6-W7D1j3oLAGY">
+                    </div>
+                    <script type="text/javascript">
+                    (function() {
+                    try{
+                    var f = document.createElement("iframe");
 
-                        <div class="form-group">
-                            <label for="consumptionType">Tipo di consumo</label>
-                            <select id="consumptionType" name="consumptionType">
-                                <option value="">Seleziona tipo di consumo</option>
-                                <option value="basso">Basso (fino a 2.000 kWh/anno)</option>
-                                <option value="medio">Medio (2.000-4.000 kWh/anno)</option>
-                                <option value="alto">Alto (oltre 4.000 kWh/anno)</option>
-                                <option value="non-so">Non lo so</option>
-                            </select>
-                        </div>
+                    var ifrmSrc = 'https://forms.zohopublic.eu/easyclickstoritvedoo1/form/Contatti/formperma/8mZJf0m746aDrQc_lAt2QRL8i-AorA6-W7D1j3oLAGY?zf_rszfm=1';
 
-                        <div class="form-group">
-                            <label for="message">Messaggio</label>
-                            <textarea id="message" name="message" placeholder="Raccontaci le tue esigenze o fai le tue domande..."></textarea>
-                        </div>
 
-                        <div class="form-group checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="privacy" name="privacy" required>
-                                <span class="checkbox-custom"></span>
-                                Accetto il trattamento dei dati personali secondo la <a href="privacy-policy.html" target="_blank">Privacy Policy</a> *
-                            </label>
-                        </div>
+                            try{
+                    if ( typeof ZFAdvLead != "undefined" && typeof zfutm_zfAdvLead != "undefined" ) {
+                    for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
+                        var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
+                        utmPm = ( ZFAdvLead.isSameDomian && ( ZFAdvLead.utmcustPNameArr.indexOf(utmPm) == -1 ) ) ? "zf_" + utmPm : utmPm;
+                        var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
+                        if ( typeof utmVal !== "undefined" ) {
+                          if ( utmVal != "" ) {
+                            if(ifrmSrc.indexOf('?') > 0){
+                                 ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;
+                            }else{
+                                ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;
+                            }
+                          }
+                        }
+                    }
+                    }
+                    if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
+                    for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
+                            var utmPm = ZFLead.utmPNameArr[ prmIdx ];
+                            var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
+                            if ( typeof utmVal !== "undefined" ) {
+                              if ( utmVal != "" ){
+                                if(ifrmSrc.indexOf('?') > 0){
+                                  ifrmSrc = ifrmSrc+'&'+utmPm+'='+utmVal;//No I18N
+                                }else{
+                                  ifrmSrc = ifrmSrc+'?'+utmPm+'='+utmVal;//No I18N
+                                }
+                              }
+                            }
+                          }
+                    }
+                    }catch(e){}
 
-                        <div class="form-group checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="marketing" name="marketing">
-                                <span class="checkbox-custom"></span>
-                                Accetto di ricevere comunicazioni commerciali e promozionali
-                            </label>
-                        </div>
+                    f.src = ifrmSrc;
+                    f.style.border="none";
+                    f.style.height="1341px";
+                    f.style.width="90%";
+                    f.style.transition="all 0.5s ease";
+                    f.setAttribute("aria-label", 'Contatti');
 
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <i class="fas fa-phone"></i>
-                            Richiedi Confronto Gratuito
-                        </button>
-                    </form>
+                    var d = document.getElementById("zf_div_8mZJf0m746aDrQc_lAt2QRL8i-AorA6-W7D1j3oLAGY");
+                    d.appendChild(f);
+                    window.addEventListener('message', function (){
+                    var evntData = event.data;
+                    if( evntData && evntData.constructor == String ){
+                    var zf_ifrm_data = evntData.split("|");
+                    if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
+                    var zf_perma = zf_ifrm_data[0];
+                    var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
+                    var iframe = document.getElementById("zf_div_8mZJf0m746aDrQc_lAt2QRL8i-AorA6-W7D1j3oLAGY").getElementsByTagName("iframe")[0];
+                    if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
+                    var prevIframeHeight = iframe.style.height;
+                    var zf_tout = false;
+                    if( zf_ifrm_data.length == 3 ) {
+                        iframe.scrollIntoView();
+                        zf_tout = true;
+                    }
+
+                    if ( prevIframeHeight != zf_ifrm_ht_nw ) {
+                    if( zf_tout ) {
+                        setTimeout(function(){
+                            iframe.style.height = zf_ifrm_ht_nw;
+                        },500);
+                    } else {
+                        iframe.style.height = zf_ifrm_ht_nw;
+                    }
+                    }
+                    }
+                    }
+                    }
+                    }, false);
+                        }catch(e){}
+                    })();
+                    </script>
                 </div>
             </div>
         </div>
