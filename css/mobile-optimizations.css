@@ -20,8 +20,8 @@
     .hero-content {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1.5rem !important;
-        padding: 1.25rem 0 !important;
+        gap: 2rem !important;
+        padding: 1.5rem 0 !important;
         min-height: auto !important;
         grid-template-columns: none !important;
     }
@@ -31,7 +31,7 @@
         text-align: center !important;
         padding-right: 0 !important;
         max-width: 100% !important;
-        padding-bottom: 0.5rem !important;
+        padding-bottom: 1rem !important;
         margin-left: auto !important;
         margin-right: auto !important;
         position: relative !important;
@@ -59,67 +59,75 @@
     
     .hero-visual {
         order: 2 !important;
-        /* Riduci lo spazio sopra l'immagine per avvicinarla alla CTA */
-        padding: 0.5rem 0 0 0 !important;
+        /* Spazio ottimizzato per una transizione visiva più fluida */
+        padding: 1.5rem 0 0 0 !important;
         height: auto !important;
     }
     
     .hero-cta {
-        margin-top: 1.5rem !important;
-        padding-top: 0.5rem !important;
+        margin-top: 2rem !important;
+        padding-top: 1rem !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 1rem !important;
-        align-items: stretch !important;
+        gap: 1.25rem !important;
+        align-items: center !important;
+        max-width: 350px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
     
-    /* Typography mobile - Migliorata leggibilità e coerenza */
+    /* Typography mobile - Migliorata leggibilità e gerarchia visiva */
     .hero-title {
-        font-size: clamp(1.75rem, 6.5vw, 2.5rem) !important;
-        line-height: 1.25 !important;
-        margin-bottom: 1.25rem !important;
-        letter-spacing: -0.02em !important;
-        font-weight: 600 !important;
+        font-size: clamp(2rem, 7vw, 2.75rem) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1.5rem !important;
+        letter-spacing: -0.025em !important;
+        font-weight: 700 !important;
+        text-align: center !important;
     }
     
     .title-highlight {
-        font-size: 1.1em !important;
-        margin-bottom: 0.75rem !important;
+        font-size: 1.15em !important;
+        margin-bottom: 0.5rem !important;
         display: block !important;
-        font-weight: 700 !important;
-        line-height: 1.15 !important;
+        font-weight: 800 !important;
+        line-height: 1.1 !important;
         text-align: center !important;
+        letter-spacing: -0.02em !important;
     }
     
     .title-main {
-        font-size: 0.85em !important;
-        line-height: 1.35 !important;
-        margin-top: 0.75rem !important;
+        font-size: 0.8em !important;
+        line-height: 1.3 !important;
+        margin-top: 0.5rem !important;
         font-weight: 500 !important;
-        opacity: 0.95 !important;
+        opacity: 0.9 !important;
         text-align: center !important;
+        letter-spacing: -0.01em !important;
     }
     
     .hero-description {
-        font-size: 1.1rem !important;
-        line-height: 1.65 !important;
-        margin: 0.25rem auto 1rem auto !important;
-        max-width: 36rem !important;
-        opacity: 0.92 !important;
-        font-weight: 400 !important;
-        letter-spacing: 0.01em !important;
+        font-size: 1.05rem !important;
+        line-height: 1.55 !important;
+        margin: 1rem auto 1.25rem auto !important;
+        max-width: 32rem !important;
+        opacity: 0.9 !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.005em !important;
         text-align: center !important;
+        padding: 0 0.5rem !important;
     }
     
     .hero-subdescription {
-        font-size: 1rem !important;
-        line-height: 1.6 !important;
-        margin: 0.25rem auto 1.75rem auto !important;
-        max-width: 36rem !important;
-        opacity: 0.88 !important;
-        font-weight: 300 !important;
-        letter-spacing: 0.005em !important;
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        margin: 0.5rem auto 2rem auto !important;
+        max-width: 30rem !important;
+        opacity: 0.8 !important;
+        font-weight: 400 !important;
+        letter-spacing: 0.002em !important;
         text-align: center !important;
+        padding: 0 0.75rem !important;
     }
     
     /* Image mobile optimization - Immagine a larghezza piena schermo */
@@ -150,14 +158,14 @@
     .hero-cta .btn-pulse,
     .hero-cta .btn-pulse-secondary {
         width: 100% !important;
-        max-width: 320px !important;
-        min-width: 320px !important;
-        padding: 1.15rem 1.5rem !important;
+        max-width: 340px !important;
+        min-width: 280px !important;
+        padding: 1.2rem 1.5rem !important;
         font-size: 1rem !important;
         justify-content: center !important;
-        margin: 0 auto 0.75rem auto !important;
-        min-height: 60px !important;
-        max-height: 60px !important;
+        margin: 0 auto 0.5rem auto !important;
+        min-height: 64px !important;
+        max-height: 64px !important;
         touch-action: manipulation !important;
         border-radius: 0.75rem !important;
         display: flex !important;
