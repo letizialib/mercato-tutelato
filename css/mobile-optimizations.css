@@ -101,23 +101,24 @@
         text-align: center !important;
     }
     
-    /* Image mobile optimization */
+    /* Image mobile optimization - Immagine a larghezza piena schermo */
     .main-visual-container {
         position: static !important;
-        width: 100% !important;
+        width: calc(100vw) !important;
         height: 280px !important;
-        margin: 0 !important;
+        margin: 0 -1rem !important; /* Estende oltre i margini del container */
         padding: 0 !important;
-        border-radius: 0.5rem !important;
+        border-radius: 0 !important; /* Rimuove il bordo arrotondato per occupare tutto lo schermo */
         overflow: hidden !important;
+        max-width: none !important;
     }
     
     .hero-photo {
         width: 100% !important;
         height: 280px !important;
-        object-fit: contain !important;
+        object-fit: cover !important; /* Cambiato da contain a cover per riempire tutto */
         object-position: center center !important;
-        border-radius: 0.5rem !important;
+        border-radius: 0 !important; /* Rimuove il bordo arrotondato */
         transform: none !important;
         filter: none !important;
         background-color: #f3f4f6;
