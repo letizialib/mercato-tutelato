@@ -34,6 +34,27 @@
         padding-bottom: 0.5rem !important;
         margin-left: auto !important;
         margin-right: auto !important;
+        position: relative !important;
+    }
+    
+    /* Aggiunge elementi decorativi mobili per maggiore dinamismo */
+    .hero-text::before {
+        content: '';
+        position: absolute;
+        top: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, 
+            transparent 0%, 
+            rgba(251, 191, 36, 0.6) 20%, 
+            rgba(251, 191, 36, 1) 50%, 
+            rgba(251, 191, 36, 0.6) 80%, 
+            transparent 100%);
+        border-radius: 2px;
+        filter: blur(0.5px);
+        animation: decorativeLine 3s ease-in-out infinite;
     }
     
     .hero-visual {
@@ -580,5 +601,17 @@
     .nav-link {
         font-size: 1rem !important;
         padding: var(--space-2) 0 !important;
+    }
+}
+
+/* Animazione per l'elemento decorativo */
+@keyframes decorativeLine {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translateX(-50%) scaleX(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1.1);
     }
 }
