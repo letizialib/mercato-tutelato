@@ -209,6 +209,20 @@
         padding: 2rem 0 !important;
     }
     
+    /* Comparison Overview - Mobile optimization for confronto page */
+    .overview-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .overview-text {
+        order: 1;
+    }
+    
+    .overview-stats {
+        order: 2;
+    }
+    
     /* Navigation mobile fixes */
     .navbar {
         height: 60px !important;
