@@ -183,10 +183,30 @@
     /* Hide decorative elements on mobile */
     .floating-elements,
     .floating-icon,
-    .floating-card,
     .golden-glow-left,
     .golden-glow-right {
         display: none !important;
+    }
+    
+    /* Intro Section - Mobile optimization for Chi Siamo and Mercato Tutelato pages */
+    .intro-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .intro-text {
+        order: 1;
+    }
+    
+    .intro-visual {
+        order: 2;
+        height: 400px !important;
+        min-height: 400px !important;
+        position: relative !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 2rem 0 !important;
     }
     
     /* Navigation mobile fixes */
