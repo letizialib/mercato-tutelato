@@ -7,7 +7,8 @@
     .hero {
         min-height: auto !important;
         height: auto !important;
-        padding: calc(60px + 1rem) 0 2rem 0 !important;
+        /* Maggior spazio in alto per distanziare la hero dalla navbar su mobile */
+        padding: calc(80px + 1rem) 0 2rem 0 !important;
         border-radius: 0 !important;
         overflow-x: hidden;
     }
@@ -32,6 +33,8 @@
         padding-right: 0 !important;
         max-width: 100% !important;
         padding-bottom: 1.5rem !important;
+        /* Spazio aggiuntivo in alto per distanziare il contenuto dalla navbar */
+        padding-top: 1rem !important;
         margin-left: auto !important;
         margin-right: auto !important;
         position: relative !important;
@@ -41,7 +44,8 @@
     .hero-text::before {
         content: '';
         position: absolute;
-        top: -1rem;
+        /* Sposta la piccola lampadina leggermente verso il basso per aumentare la distanza dalla navbar */
+        top: 0.5rem;
         left: 50%;
         transform: translateX(-50%);
         width: 60px;
@@ -78,7 +82,8 @@
     
     /* Typography mobile - Testo più grande e spazioso */
     .hero-title {
-        font-size: clamp(2.25rem, 8vw, 3.25rem) !important;
+        /* Aumentato per migliore leggibilità su schermi mobili */
+        font-size: clamp(2.75rem, 9.5vw, 4rem) !important;
         line-height: 1.15 !important;
         margin-bottom: 2rem !important;
         letter-spacing: -0.025em !important;
@@ -297,7 +302,8 @@
 /* Smaller mobile devices - Ulteriormente ottimizzato */
 @media (max-width: 480px) {
     .hero {
-        padding: calc(60px + 1rem) 0 1.75rem 0 !important;
+        /* Aumentato anche sui dispositivi molto piccoli */
+        padding: calc(80px + 1rem) 0 1.75rem 0 !important;
     }
     
     .hero-container {
@@ -310,7 +316,8 @@
     }
     
     .hero-title {
-        font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;
+        /* Aumentato per schermi molto piccoli */
+        font-size: clamp(2rem, 6.5vw, 2.8rem) !important;
         margin-bottom: 1rem !important;
         line-height: 1.2 !important;
     }
@@ -318,6 +325,8 @@
         text-align: center !important;
         margin-left: auto !important;
         margin-right: auto !important;
+        /* Leggero padding-top anche sui dispositivi più piccoli */
+        padding-top: 0.75rem !important;
     }
     
     .title-highlight {
@@ -379,6 +388,11 @@
         object-fit: contain !important;
         object-position: center center !important;
         background-color: #f3f4f6 !important;
+    }
+
+    /* Leggera regolazione della decorazione sopra il titolo sui piccoli schermi */
+    .hero-text::before {
+        top: 0.25rem !important;
     }
     
     .btn-pulse {
