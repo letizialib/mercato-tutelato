@@ -9650,6 +9650,20 @@ input:checked + .cookie-slider:before {
         min-width: 200px;
         max-width: 240px;
     }
+    
+    /* Make secondary button same height as primary button on desktop */
+    .hero-btn.btn-pulse-secondary {
+        padding: var(--space-3) var(--space-5) !important;
+    }
+    
+    .hero-btn.btn-pulse-secondary .btn-main {
+        font-size: var(--font-size-base) !important;
+        font-weight: 600 !important;
+    }
+    
+    .hero-btn.btn-pulse-secondary .btn-sub {
+        font-size: var(--font-size-xs) !important;
+    }
 }
 
 /* ================================
