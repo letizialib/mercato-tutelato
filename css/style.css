@@ -9806,7 +9806,7 @@ input:checked + .cookie-slider:before {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: white !important;
     text-decoration: none;
     box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
     z-index: 9999;
@@ -9815,21 +9815,33 @@ input:checked + .cookie-slider:before {
     cursor: pointer;
 }
 
+.floating-call-btn a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
 .floating-call-btn:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 25px rgba(34, 197, 94, 0.6);
     background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
-    color: white;
+    color: white !important;
     text-decoration: none;
+}
+
+.floating-call-btn:hover a {
+    color: white !important;
+    text-decoration: none !important;
 }
 
 .floating-call-btn i {
     font-size: 24px;
     transition: transform 0.3s ease;
+    color: white !important;
 }
 
 .floating-call-btn:hover i {
     transform: scale(1.1);
+    color: white !important;
 }
 
 /* Pulse animation for the floating call button */
