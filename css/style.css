@@ -9458,6 +9458,20 @@ input:checked + .cookie-slider:before {
 .company-contact strong {
     color: var(--primary-color);
     font-weight: 700;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Previeni auto-detection dei numeri di telefono delle aziende */
+.company-contact strong,
+.company-contact .no-tel-link {
+    color: var(--primary-color) !important;
+    text-decoration: none !important;
+    pointer-events: none !important;
+    cursor: text !important;
 }
 
 /* CTA Section */
